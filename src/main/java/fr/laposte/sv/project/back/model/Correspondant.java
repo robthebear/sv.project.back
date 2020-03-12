@@ -1,26 +1,28 @@
 package fr.laposte.sv.project.back.model;
 
-import lombok.*;
-import lombok.experimental.FieldDefaults;
-import org.springframework.data.annotation.Id;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.io.Serializable;
-@FieldDefaults(level= AccessLevel.PRIVATE)
-@NoArgsConstructor
-@AllArgsConstructor
-@Getter
+
 @Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 public class Correspondant implements Serializable {
     @Id
-     String id;
-     String nom;
-     String prenom;
-     String fonction;
-     String email;
-     int telephone;
+    private String id;
+    private String nom;
+    private String prenom;
+    private String fonction;
+    private String email;
+    private int telephone;
 
 
 }
