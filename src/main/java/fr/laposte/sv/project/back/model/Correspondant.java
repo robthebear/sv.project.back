@@ -1,15 +1,14 @@
 package fr.laposte.sv.project.back.model;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.io.Serializable;
 
+@FieldDefaults (level = AccessLevel.PRIVATE)
 @Setter
 @Getter
 @AllArgsConstructor
@@ -17,12 +16,12 @@ import java.io.Serializable;
 @Entity
 public class Correspondant implements Serializable {
     @Id
-    private String id;
-    private String nom;
-    private String prenom;
-    private String fonction;
-    private String email;
-    private int telephone;
+    String id_RH;
+    String nom;
+    String prenom;
+    String fonction;
+    String email;
+    String telephone;
 
 
 }
