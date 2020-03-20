@@ -1,5 +1,7 @@
 package fr.laposte.sv.project.back.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -20,7 +22,12 @@ public class WebService implements Serializable {
     String webService;
     String libelleWebService;
     Date dateCreation;
-    @ManyToOne
+@ManyToOne
+        @JoinColumn(name = "code_application")
+        @JsonIgnoreProperties
+//    @JoinTable(name = "application_web_service",
+//            joinColumns = @JoinColumn(name = "application_code_application"),
+//            inverseJoinColumns = @JoinColumn(name = "web_service_id"))
     Application application;
 
 

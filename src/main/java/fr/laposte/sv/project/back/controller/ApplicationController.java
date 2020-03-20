@@ -57,14 +57,15 @@ public class ApplicationController {
         }
     }
     @DeleteMapping("/supprimer/{id}")
-    public void delOne(@PathVariable String id) {
-        Optional<Application> optApplication = applicationRepository.findById(id);
-        if (optApplication.isPresent()) {
+    public void delApplication(@PathVariable String id) {
+        Optional<Application> optionalApplication = applicationRepository.findById(id);
+        if (optionalApplication
+                .isPresent()) {
             applicationRepository.deleteById(id);
-            System.out.println("Action supprimée");
-
-        } else {
-            System.out.println("Pas d'action à supprimer");
+//            System.out.println("Action supprimée");
+//
+//        } else {
+//            System.out.println("Pas d'action à supprimer");
 
         }
     }

@@ -8,5 +8,4 @@ import java.util.Optional;
 public interface ApplicationRepository extends JpaRepository<Application, String> {
     Optional<Application> findByLibelle(String libelle);
 
-   // Optional<Application> findByCode(String codeApplicattion);
 }
