@@ -2,6 +2,7 @@ package fr.laposte.sv.project.back.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.hibernate.annotations.Cascade;
@@ -26,10 +27,6 @@ public class Application implements Serializable {
     String libelle;
     String type;
     @OneToMany (targetEntity = WebService.class, mappedBy = "application")
-@JsonIgnoreProperties
-//    @JoinTable(name = "appartenir",
-//                joinColumns = @JoinColumn(name = "code_application"),
-//                 inverseJoinColumns = @JoinColumn(name = "id_web_service"))
     List<WebService> webService;
 
 

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 import java.util.Collection;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin("*")
@@ -20,5 +21,13 @@ public class WebServiceController {
     @GetMapping("/tout")
     public Collection<WebService> findAll() {
         return webServiceRepository.findAll();
+    }
+
+    @DeleteMapping("/supprimer/{id}")
+    public void supprimerWebService(@PathVariable int id) {
+        Optional<WebService> optionalWebService = webServiceRepository.findById(id);
+        if (optionalWebService.isPresent()) {
+            webServiceRepository.deleteById(id);
+        }
     }
 }
