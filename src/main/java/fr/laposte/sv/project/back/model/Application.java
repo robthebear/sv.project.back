@@ -2,6 +2,7 @@ package fr.laposte.sv.project.back.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -26,7 +27,8 @@ public class Application implements Serializable {
     String codeApplication;
     String libelle;
     String type;
-    @OneToMany (targetEntity = WebService.class, mappedBy = "application")
+    @OneToMany (targetEntity = WebService.class, mappedBy = "application", cascade = CascadeType.ALL, orphanRemoval = true)
+            @JsonManagedReference
     List<WebService> webService;
 
 

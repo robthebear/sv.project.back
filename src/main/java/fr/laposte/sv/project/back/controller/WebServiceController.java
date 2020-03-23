@@ -4,6 +4,7 @@ package fr.laposte.sv.project.back.controller;
 import fr.laposte.sv.project.back.model.WebService;
 import fr.laposte.sv.project.back.repository.WebServiceRepository;
 import org.springframework.beans.factory.annotation.*;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -21,6 +22,11 @@ public class WebServiceController {
     @GetMapping("/tout")
     public Collection<WebService> findAll() {
         return webServiceRepository.findAll();
+    }
+
+    @PostMapping("/ajout")
+    public WebService ajoutWebservice (@RequestBody WebService webService) {
+        return webServiceRepository.saveAndFlush(webService);
     }
 
     @DeleteMapping("/supprimer/{id}")

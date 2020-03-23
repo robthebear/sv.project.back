@@ -56,26 +56,14 @@ public class ApplicationController {
             return new ResponseEntity<>(application, HttpStatus.NOT_FOUND);
         }
     }
-//    @DeleteMapping("/supprimer/{id}")
-//    public void delApplication(@PathVariable String id) {
-//        Optional<Application> optionalApplication = applicationRepository.findById(id);
-//        if (optionalApplication
-//                .isPresent()) {
-//            applicationRepository.deleteById(id);
-//
-//        }
-//    }
-@DeleteMapping("/supprimer/{id}")
-    public void delApplication(@RequestBody Application application)
-{
-    Optional<Application> applicationEnBase = applicationRepository.findById(application.getCodeApplication());
+    @DeleteMapping("/supprimer/{id}")
+    public void delApplication(@PathVariable String id) {
+        Optional<Application> optionalApplication = applicationRepository.findById(id);
+        if (optionalApplication
+                .isPresent()) {
+            applicationRepository.deleteById(id);
 
-    if (applicationEnBase.isPresent()) {
-        if (application.getWebService() != null) {
-            applicationRepository.deleteByWebService(application.getWebService());
         }
-        applicationRepository.deleteById(application.getCodeApplication());
-
     }
-}
+
 }

@@ -1,8 +1,6 @@
 package fr.laposte.sv.project.back.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -16,17 +14,17 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class WebService implements Serializable{
+public class WebService implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
     String webService;
     String libelleWebService;
     Date dateCreation;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JsonBackReference
     @JoinColumn(name = "code_application")
-            @JsonIgnore
-            Application application;
+    Application application;
 
 
 }
