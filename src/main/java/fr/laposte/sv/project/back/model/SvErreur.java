@@ -1,5 +1,6 @@
 package fr.laposte.sv.project.back.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -22,5 +23,8 @@ public class SvErreur implements Serializable {
     String statutRetour;
     String statutHttp;
     String libelleErreur;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JsonBackReference
+    @JoinColumn(name = "web_service_id")
     WebService webService;
 }

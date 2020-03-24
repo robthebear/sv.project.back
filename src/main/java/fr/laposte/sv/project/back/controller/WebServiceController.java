@@ -26,8 +26,14 @@ public class WebServiceController {
 
     @PostMapping("/ajout")
     public WebService ajoutWebservice (@RequestBody WebService webService) {
+        System.out.print(webService);
         return webServiceRepository.saveAndFlush(webService);
     }
+
+//        @PostMapping("/ajout")
+//    public void ajoutWebservice (@RequestBody WebService webService) {
+//        webServiceRepository.save(webService);
+//    }
 
     @DeleteMapping("/supprimer/{id}")
     public void supprimerWebService(@PathVariable int id) {

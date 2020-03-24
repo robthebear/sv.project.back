@@ -7,6 +7,7 @@ import lombok.experimental.FieldDefaults;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Setter
@@ -23,8 +24,13 @@ public class WebService implements Serializable {
     Date dateCreation;
     @ManyToOne(cascade = CascadeType.ALL)
     @JsonBackReference
-    @JoinColumn(name = "code_application")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @JoinColumn(name = "code_application", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "application"))
     Application application;
+
+    @OneToMany(targetEntity = SvErreur.class, mappedBy = "webService", cascade = CascadeType.ALL, orphanRemoval = true)
+            @JsonManagedReference
+    List<SvErreur> svErreur;
 
 
 }

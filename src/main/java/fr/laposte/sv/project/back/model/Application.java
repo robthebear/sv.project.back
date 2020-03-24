@@ -27,8 +27,8 @@ public class Application implements Serializable {
     String codeApplication;
     String libelle;
     String type;
-    @OneToMany (targetEntity = WebService.class, mappedBy = "application", cascade = CascadeType.ALL, orphanRemoval = true)
-            @JsonManagedReference
+    @OneToMany(targetEntity = WebService.class, mappedBy = "application", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     List<WebService> webService;
 
 

@@ -147,8 +147,8 @@ INSERT INTO sv_project.habilitation (id_rh, mot_de_passe, role) VALUES ('PBGF123
 INSERT INTO sv_project.habilitation (id_rh, mot_de_passe, role) VALUES ('PPDL890', 'james', 'ADMIN');
 INSERT INTO sv_project.habilitation (id_rh, mot_de_passe, role) VALUES ('PPQR933', 'prstres', 'SUPERADMIN');
 
-INSERT INTO sv_project.sv_erreur (date_debut, date_fin, libelle_erreur, statut_http, statut_retour, web_service) VALUES ('2020-01-10', '2020-01-11', 'erreur systeme', '403', 'FAILURE', 2);
-INSERT INTO sv_project.sv_erreur (date_debut, date_fin, libelle_erreur, statut_http, statut_retour, web_service) VALUES ('2020-03-11', '2020-03-12', 'kmezjgpozjgz', '403', 'FAILURE', 1);
+INSERT INTO sv_project.sv_erreur (date_debut, date_fin, libelle_erreur, statut_http, statut_retour, web_service_id) VALUES ('2020-01-10', '2020-01-11', 'erreur systeme', '403', 'FAILURE', 2);
+INSERT INTO sv_project.sv_erreur (date_debut, date_fin, libelle_erreur, statut_http, statut_retour, web_service_id) VALUES ('2020-03-11', '2020-03-12', 'kmezjgpozjgz', '403', 'FAILURE', 1);
 
 INSERT INTO sv_project.sv_statistique (date, pourcentage, temps_moyen, web_service) VALUES ('2020-02-28', 18, 3, 1);
 INSERT INTO sv_project.sv_statistique (date, pourcentage, temps_moyen, web_service) VALUES ('2020-03-10', 25, 2, 2);
