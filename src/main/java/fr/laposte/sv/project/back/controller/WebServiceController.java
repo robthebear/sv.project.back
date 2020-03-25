@@ -1,7 +1,9 @@
 package fr.laposte.sv.project.back.controller;
 
 
+import fr.laposte.sv.project.back.model.Application;
 import fr.laposte.sv.project.back.model.WebService;
+import fr.laposte.sv.project.back.repository.ApplicationRepository;
 import fr.laposte.sv.project.back.repository.WebServiceRepository;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.http.ResponseEntity;
@@ -19,14 +21,19 @@ public class WebServiceController {
     @Autowired
     private WebServiceRepository webServiceRepository;
 
-    @GetMapping("/tout")
+    @Autowired
+
+    private ApplicationRepository applicationRepository;
+
+    @GetMapping
     public Collection<WebService> findAll() {
         return webServiceRepository.findAll();
     }
 
-    @PostMapping("/ajout")
+    @PostMapping
     public WebService ajoutWebservice (@RequestBody WebService webService) {
         System.out.print(webService);
+
         return webServiceRepository.saveAndFlush(webService);
     }
 

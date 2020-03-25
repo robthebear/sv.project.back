@@ -22,15 +22,14 @@ public class WebService implements Serializable {
     String webService;
     String libelleWebService;
     Date dateCreation;
-    @ManyToOne(cascade = CascadeType.ALL)
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonBackReference
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @JoinColumn(name = "code_application", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "application"))
+    @JoinColumn(name = "code_application", insertable = false, updatable = false)
     Application application;
 
     @OneToMany(targetEntity = SvErreur.class, mappedBy = "webService", cascade = CascadeType.ALL, orphanRemoval = true)
             @JsonManagedReference
     List<SvErreur> svErreur;
-
-
 }
