@@ -24,10 +24,10 @@ import java.util.Set;
 @Entity(name = "application")
 public class Application implements Serializable {
     @Id
-    String codeApplication;
+    String id;
     String libelle;
     String type;
-    @OneToMany(targetEntity = WebService.class, mappedBy = "application", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "application", orphanRemoval = true)
     @JsonManagedReference
     List<WebService> webService;
 

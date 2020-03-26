@@ -6,7 +6,6 @@ import fr.laposte.sv.project.back.model.WebService;
 import fr.laposte.sv.project.back.repository.ApplicationRepository;
 import fr.laposte.sv.project.back.repository.WebServiceRepository;
 import org.springframework.beans.factory.annotation.*;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -22,7 +21,6 @@ public class WebServiceController {
     private WebServiceRepository webServiceRepository;
 
     @Autowired
-
     private ApplicationRepository applicationRepository;
 
     @GetMapping
@@ -30,17 +28,28 @@ public class WebServiceController {
         return webServiceRepository.findAll();
     }
 
-    @PostMapping
-    public WebService ajoutWebservice (@RequestBody WebService webService) {
-        System.out.print(webService);
+    @GetMapping("/parWS/{webService}")
+    public Optional<WebService> findByWebService(@PathVariable String webService) {
+        return webServiceRepository.findByWebService(webService);
+    }
 
+    @PostMapping
+    public WebService ajoutWebservice(@RequestBody WebService webService) {
+        System.out.print(webService);
+        final Optional<Application> app = applicationRepository.findById(webService.getApplication().getId());
+        if (app.isPresent()) {
+            webService.setApplication(app.get());}
+        //TODO else
         return webServiceRepository.saveAndFlush(webService);
     }
 
-//        @PostMapping("/ajout")
-//    public void ajoutWebservice (@RequestBody WebService webService) {
-//        webServiceRepository.save(webService);
+//    @PostMapping
+//    public WebService ajoutWebservice(@RequestBody WebService webService, @RequestBody Application application) {
+//webService.setApplication(application);
+//return webServiceRepository.saveAndFlush(webService.);
 //    }
+
+
 
     @DeleteMapping("/supprimer/{id}")
     public void supprimerWebService(@PathVariable int id) {

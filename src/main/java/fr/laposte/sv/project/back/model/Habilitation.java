@@ -17,9 +17,9 @@ import java.io.Serializable;
 @Entity
 public class Habilitation implements Serializable {
     @Id
-    String idRh;
+    String id;
     @Enumerated(EnumType.STRING)
-            Role role;
+    Role role;
     String motDePasse;
-    
+
 }

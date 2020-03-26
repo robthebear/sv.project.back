@@ -1,5 +1,6 @@
 package fr.laposte.sv.project.back.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -20,5 +21,7 @@ public class SvStatistique implements Serializable {
     Date date;
     int pourcentage;
     int tempsMoyen;
+    @ManyToOne
+    @JsonBackReference
     WebService webService;
 }

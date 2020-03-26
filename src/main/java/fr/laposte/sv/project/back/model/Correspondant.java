@@ -16,7 +16,7 @@ import java.io.Serializable;
 @Entity
 public class Correspondant implements Serializable {
     @Id
-    String id_RH;
+    String id;
     String nom;
     String prenom;
     String fonction;

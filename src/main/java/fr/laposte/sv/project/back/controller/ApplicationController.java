@@ -34,13 +34,13 @@ public class ApplicationController {
     public Optional<Application> findByLibelle(@PathVariable String libelle) {
         return applicationRepository.findByLibelle(libelle);
     }
-    @PostMapping("/ajout")
+    @PostMapping
     public Application ajoutApplication(@RequestBody Application application) {
         return applicationRepository.saveAndFlush(application);
     }
-    @PutMapping("/update")
+    @PutMapping
     public ResponseEntity<Application> updateApplication(@RequestBody Application application) {
-        Optional<Application> applicationEnBase = applicationRepository.findById(application.getCodeApplication());
+        Optional<Application> applicationEnBase = applicationRepository.findById(application.getId());
         if (applicationEnBase.isPresent()) {
             if (application.getLibelle()== null) {
                 application.setLibelle(applicationEnBase.get().getLibelle());

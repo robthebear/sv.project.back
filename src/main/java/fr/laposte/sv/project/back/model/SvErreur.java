@@ -23,8 +23,8 @@ public class SvErreur implements Serializable {
     String statutRetour;
     String statutHttp;
     String libelleErreur;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonBackReference
-    @JoinColumn(name = "web_service_id")
+    @JoinColumn(name = "web_service", referencedColumnName = "id")
     WebService webService;
 }

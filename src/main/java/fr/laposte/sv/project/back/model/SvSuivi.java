@@ -1,6 +1,7 @@
 package fr.laposte.sv.project.back.model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -23,6 +24,8 @@ public class SvSuivi implements Serializable {
     Date dateFin;
     String statutRetour;
     String statutHttp;
+    @ManyToOne
+    @JsonBackReference
     WebService webService;
 
 

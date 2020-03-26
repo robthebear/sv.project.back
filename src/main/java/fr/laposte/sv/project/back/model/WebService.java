@@ -25,11 +25,18 @@ public class WebService implements Serializable {
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonBackReference
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @JoinColumn(name = "code_application", insertable = false, updatable = false)
+    @JoinColumn( name = "application", referencedColumnName = "id")
     Application application;
 
-    @OneToMany(targetEntity = SvErreur.class, mappedBy = "webService", cascade = CascadeType.ALL, orphanRemoval = true)
-            @JsonManagedReference
+    @OneToMany(mappedBy = "webService", orphanRemoval = true)
+    @JsonManagedReference
     List<SvErreur> svErreur;
+
+    @OneToMany(mappedBy = "webService", orphanRemoval = true)
+    @JsonManagedReference
+    List<SvSuivi> svSuivi;
+
+    @OneToMany(mappedBy = "webService", orphanRemoval = true)
+    @JsonManagedReference
+    List<SvStatistique> svStatistique;
 }
