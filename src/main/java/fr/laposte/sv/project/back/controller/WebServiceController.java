@@ -51,11 +51,12 @@ public class WebServiceController {
 
 
 
-    @DeleteMapping("/supprimer/{id}")
+    @DeleteMapping("{id}")
     public void supprimerWebService(@PathVariable int id) {
-        Optional<WebService> optionalWebService = webServiceRepository.findById(id);
-        if (optionalWebService.isPresent()) {
-            webServiceRepository.deleteById(id);
-        }
+//        Optional<WebService> optionalWebService = webServiceRepository.findById(id);
+//        if (optionalWebService.isPresent()) {
+//            webServiceRepository.deleteById(id);
+//        }
+        webServiceRepository.deleteById(id);
     }
 }

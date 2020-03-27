@@ -19,13 +19,13 @@ public class SvSuivi implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
-    String codeApplication;
     Date dateDebut;
     Date dateFin;
     String statutRetour;
     String statutHttp;
     @ManyToOne
     @JsonBackReference
+    @JoinColumn(name = "web_service", referencedColumnName = "id")
     WebService webService;
 
 

@@ -23,7 +23,7 @@ INSERT INTO sv_project.sv_erreur (date_debut, date_fin, libelle_erreur, statut_h
 INSERT INTO sv_project.sv_statistique (date, pourcentage, temps_moyen, web_service_id) VALUES ('2020-02-28', 18, 3, 1);
 INSERT INTO sv_project.sv_statistique (date, pourcentage, temps_moyen, web_service_id) VALUES ('2020-03-10', 25, 2, 2);
 
-INSERT INTO sv_project.sv_suivi (code_application, date_debut, date_fin, statut_http, statut_retour, web_service_id) VALUES ('l5t', '2020-03-18', '2020-03-19', '203', 'ok', 1);
+INSERT INTO sv_project.sv_suivi (date_debut, date_fin, statut_http, statut_retour, web_service) VALUES ('2020-03-18', '2020-03-19', '203', 'ok', 1);
 
 
 

@@ -23,7 +23,7 @@ public class WebService implements Serializable {
     String libelleWebService;
     Date dateCreation;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne
     @JsonBackReference
     @JoinColumn( name = "application", referencedColumnName = "id")
     Application application;
