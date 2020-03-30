@@ -1,9 +1,11 @@
 package fr.laposte.sv.project.back.controller;
 
+import fr.laposte.sv.project.back.batch.ExtractionDonnee;
 import fr.laposte.sv.project.back.model.SvErreur;
 import fr.laposte.sv.project.back.model.WebService;
 import fr.laposte.sv.project.back.repository.SvErreurRepository;
 import fr.laposte.sv.project.back.repository.WebServiceRepository;
+import fr.laposte.sv.project.back.service.SvErreurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,11 +18,17 @@ import java.util.Optional;
 @RequestMapping("/sverreur")
 public class SvErreurController {
 
+//    @Autowired
+//    private ExtractionDonnee extractionDonnee;
+
     @Autowired
     private SvErreurRepository svErreurRepository;
 
     @Autowired
     private WebServiceRepository webServiceRepository;
+
+    @Autowired
+    private SvErreurService svErreurService;
 
     @GetMapping
     public Collection<SvErreur> findAll() {
@@ -46,6 +54,6 @@ public class SvErreurController {
 
         }
 System.out.print(svErreur);
-        return svErreurRepository.saveAndFlush(svErreur);
+        return svErreurService.saveSvErreur(svErreur);
     }
 }

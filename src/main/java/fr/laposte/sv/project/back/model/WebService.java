@@ -39,4 +39,8 @@ public class WebService implements Serializable {
     @OneToMany(mappedBy = "webService", orphanRemoval = true)
     @JsonManagedReference
     List<SvStatistique> svStatistique;
+
+
+    public WebService(String webservice) {
+    }
 }

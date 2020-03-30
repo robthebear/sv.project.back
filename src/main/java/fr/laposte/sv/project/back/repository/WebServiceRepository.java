@@ -10,4 +10,6 @@ public interface WebServiceRepository extends JpaRepository<WebService, Integer>
 
 
     Optional<WebService> findByWebService(String webService);
+
+    WebService getClass(String s);
 }
