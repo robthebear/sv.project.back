@@ -1,0 +1,90 @@
+ID;CODE;LIBELLE;TYPE;INSTANCE;TYPE_CLIENT;MOA_DIRECTION;MOA_NOM;MOA_PRENOM;MOA_ADRESSE_MESSAGERIE;C1_DIRECTION;C1_NOM;C1_PRENOM;C1_ADRESSE_MESSAGERIE;C2_DIRECTION;C2_NOM;C2_PRENOM;C2_ADRESSE_MESSAGERIE
+1;a1b;"CHEQUES VACANCES";SGBD;aa;1;"CSM SI/DSAFS/CSoRH/GID";DUVAL;Jean-Michel;jean-michel.duval@laposte.fr;"CSM SI/DSAFS/CSoRH/CC-HWD";RICHARD;Philippe;philippe1.richard@laposte.fr;;;;
+2;ac_;ACOSS;SGBD;aa;0;NULL;NULL;NULL;NULL;"URSSAF Paris";POUZADOUX;Joel;joel.pouzadoux@urssaf.fr;"URSSAF Paris";BARBIER;Stéphane;stephane.barbier@urssaf.fr
+3;bg_;"UNIVERSITE LPGP";SGBD;aa;0;NULL;NULL;NULL;NULL;"LPGP/UNIV. POSTE";GROISY;"MARTINE ";martine.groisy@laposte.fr;"LPGP/UNIV. POSTE";DRILHOLLE;FRANCK;franck.drilholle@laposte.fr
+4;bh_;IPAS;SGBD;aa;1;"CSM SI/DSAFS/CSoRH/GID";DUVAL;Jean-Michel;jean-michel.duval@laposte.fr;CSMSI/CSoRH/CCHWD;RICHARD;Philippe;philippe1.richard@laposte.fr;;;;
+5;bp_;SIGP;SGBD;aa;1;"CSM SI/DSAFS/CSoRH/GAPS";BLANCHARD;Roland;roland.blanchard@laposte.f;"CSM SI/DSAFS/CSoRH/CC-HWD";"LE PENHER";Johan;johan.le-penher@laposte.fr;"CSM SI/DSAFS/CSoRH/GAPS";FAGOT;Severine;severine.fagot@laposte.fr
+6;bv_;REINETTE;SGBD;aa;0;DFI/DPSIF;"BILLEREY ";Jean-Marc;jean-marc.billerey@laposte.fr;"CSM SI/DSAFS/C3S";MORICEAU;Ludovic;ludovic.moriceau@laposte.fr;;;;
+7;cb_;CBDOM;SGBD;aa;1;"CSM SI/DSAFS/CSoRH/GID";HENRY;Maryvonne;maryvonne.henry@laposte.fr;"CSM SI/DSAFS/CSoRH/GID";" ";" ";moa-id-gapf.dsictr@laposte.fr;"CSM SI/DSAFS/CSoRH/GID";ADAM;Stephane;stephane.adam@laposte.fr
+8;co_;"COLIPOSTE - GTA";SGBD;ab;0;NULL;NULL;NULL;NULL;DRHG/DGAPP;JULLIEN;SYLVIE;sylvie.jullien@laposte.fr;BSCC;SUPPORT;PIQTHO;piqtho.support@laposte.fr
+9;cu_;CESU;SGBD;aa;1;;;;;DSICentrale/CSoRH;BOL;Lydie;lydie.bol@laposte.fr;;;;
+10;do_;DOCAPOST;SGBD;aa;0;DIRAG;SOULAS;SANDRINE;sandrine.soulas@laposte.fr;DSIC/CSORH;AKKI;MOSTAFA;mostafa.akki@laposte.fr;;;;
+11;eq_;"REGATE ENTITES";SGBD;aa;0;DFI/DPSIF;MANZONI;Christophe;christophe.manzoni@laposte.fr;MOAS-FIN;BILLEREY;Jean-Marc;jean-marc.billerey@laposte.fr;"CSM SI/DSAFS/C3S";MORICEAU;Ludovic;ludovic.moriceau@laposte.fr
+12;eq_;"REGATE ETABLISSEMENT";SGBD;wr;0;MOAS-FIN;MANZONI;Christophe;christophe.manzoni@laposte.fr;MOAS-FIN;BILLEREY;Jean-Marc;jean-marc.billerey@laposte.fr;"CSM SI/DSAFS/C3S";MORICEAU;Ludovic;ludovic.moriceau@laposte.fr
+13;f4_;DIRCOM;SGBD;aa;1;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL
+14;f5b;"RIAM-CONTACT (F5C)";SGBD;aa;1;;;;;"CSM SI/DSAFS/DPIL";FOUQUET;Patrick;patrick.fouquet@laposte.fr;;;;
+15;f5b;"RIAM-CONTACT (F5C)";HTTP;wa;1;;;;;"CSM SI/DSAFS/DPIL";FOUQUET;Patrick;patrick.fouquet@laposte.fr;;;;
+16;fqa;"SIBP REF PREPARATION";SGBD;aa;0;NULL;NULL;NULL;NULL;LPGP/DSI;FANTONI;KARINE;karine.fantoni@labanquepostale.fr;LPGP/DSI;MENAGER;LUC;luc.menager@labanquepostale.fr
+17;ga_;ALPE;HTTP;aa;1;"CSM SI/DSAFS/CSoRH/GAPF";DURAND;Christophe;christophe.durand@laposte.fr;"CSM SI/DSAFS/CSoRH/GAPF";MACIEJCZAK;Arnaud;arnaud.maciejczak@laposte.fr;"CSM SI/DSAFS/CSoRH/GAPF";FRADIN;Stéphanie;stephanie.fradin@laposte.fr
+18;ge_;GEP;SGBD;aa;1;"CSM SI/DSAFS/CSoRH/GAPF";DURAND;Christophe;christophe.durand@laposte.fr;"CSM SI/DSAFS/CSoRH/GAPF";CHOJNACKI;Pascal;pascal.chojnacki@laposte.fr;"CSM SI/DSAFS/CSoRH/GAPF";FRADIN;Stéphanie;stephanie.fradin@laposte.fr
+19;gob;BAHIA;SGBD;aa;1;;;;;"CSM SI/DSAFS/CSoRH/GID";BOL;Lydie;lydie.bol@laposte.fr;"CSM SI/DSAFS/CSoRH/CC-HWD";RICHARD;Philippe;philippe1.richard@laposte.fr
+20;gt_;AGIRH;SGBD;wc;1;;;;;DSICentrale/CSoRH;MICHELIN;Patrick;patrick.michelin@laposte.fr;;;;
+21;hs_;HEXAPOSTE;SGBD;aa;0;NULL;NULL;NULL;NULL;SNA;CURRIAS;Alain;alain.currias@laposte.fr;SNA;DURIF;Frédéric;frederic.durif@laposte.fr
+22;j2_;I-GEODE;SGBD;wa;1;;;;;"CSM SI/DSAFS/CSoRH/GID";HALLER-DUDICK;"PIERRE HENRI";pierre-henri.haller@laposte.fr;"CSM SI/DSAFS/CSoRH/CC-HWD";RICHARD;PHILIPPE;philippe1.richard@laposte.fr
+23;j3_;E-NGC;SGBD;aa;1;;HALLER-DUDICK;"PIERRE HENRI";pierre-henri.haller@laposte.fr;DRHRS/MOASrh;JULLIEN;Sylvie;sylvie.jullien@laposte.fr;;;;
+24;j4c;IES;SGBD;aa;1;;;;;"CSM SI/DSAFS/CSoRH/GID";PERCHE;OLIVIER;olivier.perche@laposte.fr;"CSM SI/DSAFS/CSoRH/CC-HWD";FAVREAU;PHILIPPE;philippe.favreau@laposte.fr
+25;j5b;CHIMED;SGBD;aa;1;NULL;NULL;NULL;NULL;DSICentrale/CSoRH;BOUDAILLIER;Bruno;bruno.boudaillier@laposte.fr;DSICentrale/CSoRH;BOL;Lydie;lydie.bol@laposte.fr
+26;j6b;SURF;HTTP;wa;1;;;;;"CSM SI/DSAFS/CSoRH/CT-HR";AUGEREAU;Jean-Patrick;jean-patrick.augereau@laposte.fr;"CSM SI/DSAFS/CSoRH/CC-HWD";FAVREAU;Philippe;philippe.favreau@laposte.fr
+28;j6c;SAISIE-RH;SGBD;bb;0;;MELINE;Frederic;frederic.meline@laposte.fr;RESEAU;JULLIEN;Sylvie;sylvie.jullien@laposte.fr;;;;
+29;j6d;AWARD;SGBD;wc;1;"CSM SI/DSAFS/CSoRH/GAPF";BOUDEN;Noam;noam.bouden@laposte.fr;"CSM SI/DSAFS/CSoRH/GID";DUVAL;Jean-Michel;jean-michel.duval@laposte.fr;"CSM SI/DSAFS/CSoRH/CC-HWD";ULMMANN;Jérôme;jerome.ullmann@laposte.fr
+30;l53;GPEE-C;SGBD;aa;0;"CSM SI/DSAFS/CSoRH/GID";PERCHE;OLIVIER;olivier.perche@laposte.fr;"CSM SI/DSAFS/CSoRH/CC-HWD";RICHARD;PHILIPPE;philippe1.richard@laposte.fr;;;;
+31;l5x;"GESTION RH";SGBD;ab;0;-;"AGUITON MORO";LISE;lise.aguiton-moro@laposte.fr;"CSM SI/DSAFS/CSoRH/CC-HWD";"LE PENHER";JOHAN;johan.le-penher@laposte.fr;;;;
+32;lk_;PRISME;SGBD;aa;1;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL
+33;lpa;SYRA;SGBD;aa;0;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL
+34;lwb;"PAGODE SNA";SGBD;aa;1;DIRAG;SOULAS;SANDRINE;sandrine.soulas@laposte.fr;"CSM SI/DSAFS/C3S";GORDET;CHRISTOPHE;christophe.gordet@laposte.fr;;;;
+35;lz_;"REF-RH AMONT";SGBD;wm;1;"CSM SI/DSAFS/CSoRH/GID";HENRY;MARYVONNE;maryvonne.henry@laposte.fr;"CSM SI/DSAFS/CSoRH/CC-HWD";FAVREAU;PHILIPPE;philippe.favreau@laposte.fr;;;;
+36;mh_;ARMORLUX;SGBD;aa;0;NULL;NULL;NULL;NULL;COURRIER;HAROUTEL;Olivier;olivier.haroutel@laposte.fr;NULL;NULL;NULL;NULL
+37;mos;MOSAIC;SGBD;aa;1;"CSM SI/DSAFS/CSoRH/GID";HALLER-DUDICK;"PIERRE HENRI";pierre-henri.haller@laposte.fr;"CSM SI/DSAFS/CSoRH/CC-HWD";ULLMANN;JEROME;jerome.ullmann@laposte.fr;;;;
+38;mp_;MEDIAPOST;SGBD;aa;0;NULL;NULL;NULL;NULL;MEDIAPOST;GOASDUFF;MARIE-NOELLE;marie-noelle.goasduff@mediapost.fr;MEDIAPOST;SAINT-DIZIER;SANDRINE;sandrine.saint-dizier@mediapost.fr
+39;nt_;VERDI;SGBD;yy;0;"LA BANQUE POSTALE";"ILAVE MORALES";LUIS;luis.ilave-morales@labanquepostale.fr;"LA BANQUE POSTALE";ANGENIEUX;AURELIE;aurelie.angenieux@labanquepostale.fr;"LA BANQUE POSTALE";PELLETIER;Norbert;norbert.pelletier@labanquepostale.fr
+40;p4r;"PACTOLE - REFERENTIELS";SGBD;aa;1;;;;;"CSM SI/DSAFS/CSoRH/GAPF";RIBAUT;Patrick;patrick.ribaut@laposte.fr;"CSM SI/DSAFS/CSoRH/GAPF";BROUARD;Thierry;thierry.brouard@laposte.fr
+41;pg_;EDU;SGBD;aa;1;"CSM SI/DSAFS/CSoRH/GID";GUEGUEN;DENISE;denise.juan@laposte.fr;"CSM SI/DSAFS/CSoRH/CC-HWD";"BAL SUPPORT";-;prisme.support@laposte.fr;"CSM SI/DSAFS/CSoRH/CC-HWD";LABARRERE;NATHALIE;nathalie.labarrere@laposte.fr
+42;pj_;SIPREVA;SGBD;aa;1;"CSM SI/DSAFS/CSoRH/GID";DUVAL;JEAN-MICHEL;jean-michel.duval@laposte.fr;"CSM SI/DSAFS/CSoRH/CC-HWD";RICHARD;PHILIPPE;philippe1.richard@laposte.fr;;;;
+43;pv_;GEDEON;SGBD;aa;1;;;;moa-id-gapf.dsictr@laposte.fr;DSICentrale/CSoRH;HENRY;Maryvonne;maryvonne.henry@laposte.fr;DSICentrale/CSoRH;ADAM;Stephane;stephane.adam@laposte.fr
+44;px_;FANNIE;SGBD;aa;1;"CSM SI/DSAFS/CSoRH/GID";HENRY;MARYVONNE;maryvonne.henry@laposte.fr;"CSM SI/DSAFS/CSoRH/GID";ADAM;STEPHANE;stephane.adam@laposte.fr;;;;
+45;qv_;"MESSAGERIE LBP";SGBD;79;0;NULL;NULL;NULL;NULL;"LBP / DISFE";BEAUCHAUD;"Pierre Emmanuel";pierre-emmanuel.beauchaud@labanquepostale.fr;NULL;NULL;NULL;NULL
+46;sa_;PEPS;SGBD;aa;1;"CSM SI/DSAFS/CSoRH/GID";HALLER-DUDICK;"PIERRE HENRI";pierre-henri.haller@laposte.fr;"CSM SI/DSAFS/CSoRH/CC-HWD";FAVREAU;PHILIPPE;philippe.favreau@laposte.fr;;;;
+47;tc_;"DISIT FEDERATION";SGBD;aa;0;NULL;NULL;NULL;NULL;DISIT;PHILIPPIN;Bernard;bernard.philippin@laposte.fr;NULL;NULL;NULL;NULL
+48;tfb;AMCAT;SGBD;aa;1;DSGG;"DE LAGAUSIE";CATHERINE;catherine.delagausie@laposte.fr;"CSM SI/DSAFS/C3S";MURER;FRANCOIS;francois.murer@laposte.fr;;;;
+49;vqf;IBIS;SGBD;ac;0;NULL;NULL;NULL;NULL;DSICENTRALE/CSOFI;"BAL PETRA";"BAL PETRA";petra.dsictr@laposte.fr;DHA;PIESSET;Marie;marie.piesset@laposte.fr
+50;vqi;CLIC-ICI;SGBD;aa;1;DARG/DRIG;MICHEL;BEATRICE;beatrice.michel@laposte.fr;"CSM SI/DSAFS/C3S";GUVEN;MEDET;medet.guven@laposte.fr;;;;
+51;vql;"ANNUAIRE GROUPE";SGBD;ab;1;"CSM SI/DSAFS/DPIL";FOUQUET;PATRICK;patrick.fouquet@laposte.fr;"CSM SI/DSAFS/DASSA";SIMON;NICOLAS;nicolas.simon@laposte.fr;;;;
+52;j5h;PREVENTIEL;SGBD;wp;1;"CSM SI/DSAFS/CSoRH/GID";DUVAL;"JEAN MICHEL";jean-michel.duval@laposte.fr;"CSM SI/DSAFS/CSoRH/CC-HWD";ALLAIN;STEPHANIE;stephanie.allain@laposte.fr;;SAVERIAS;LAETITIA;laetitia.sinnasse@laposte.fr
+53;j5d;ODCI;SGBD;wi;0;COURRIER;REBECCHI;FRANCOIS;francois.rebecchi@laposte.fr;"CSM SI/DSAFS/CSoRH/GID";HALLER-DUDICK;"PIERRE HENRI";pierre-henri.haller@laposte.fr;"CSM SI/DSAFS/CSoRH/CC-HWD";ULLMANN;JEROME;jerome.ullmann@laposte.fr
+54;ge_;"GEP ENV AMONT";SGBD;nr;1;"CSM SI/DSAFS/CSoRH/GAPF";DURAND;Christophe;christophe.durand@laposte.fr;"CSM SI/DSAFS/CSoRH/GAPF";MACIEJCZAK;Arnaud;arnaud.maciejczak@laposte.fr;"CSM SI/DSAFS/CSoRH/GAPF";FRADIN;stéphanie;stephanie.fradin@laposte.fr
+55;v5c;SIDIS;SGBD;wa;1;DSGG;"DE LAGAUSIE";CATHERINE;catherine.delagausie@laposte.fr;"CSM SI/DSAFS/C3S";MURER;FRANCOIS;francois.murer@laposte.fr;;;;
+56;qv_;LOTUS;SGBD;aa;0;NULL;NULL;NULL;NULL;"LBP / DISFE";BEAUCHAUD;"Pierre Emmanuel";pierre-emmanuel.beauchaud@labanquepostale.fr;NULL;NULL;NULL;NULL
+57;j4g;"INTERFACE CESU";SGBD;aa;1;NULL;NULL;NULL;NULL;NULL;" ";" ";NULL;DSICentrale/CSoRH;FAVREAU;Philippe;philippe.favreau@laposte.fr
+58;j4k;REF-ID;SGBD;ab;1;"CSM SI/DSAFS/CSoRH/GID";"MOA REFID";;moa-id-gapf.dsictr@laposte.fr;"CSM SI/DSAFS/CSoRH/GID";HENRY;MARYVONNE;maryvonne.henry@laposte.fr;"CSM SI/DSAFS/CSoRH/GID";ADAM;STEPHANE;stephane.adam@laposte.fr
+59;j5c;BSST;SGBD;wc;1;;;;;"CSM SI/DSAFS/CSoRH/GID";DUVAL;Jean-Michel;jean-michel.duval@laposte.fr;"CSM SI/DSAFS/CSoRH/CC-HWD";ULLMANN;Jérôme;jerome.ullmann@laposte.fr
+60;hpa;"COLIPOSTE - ESTA";SGBD;aa;0;NULL;NULL;NULL;NULL;COURRIER/DRH;MARAIS;Christèle;christele.marais@laposte.fr;COURRIER;NULL;NULL;esta.support@laposte.fr
+61;m5f;SHARP;SGBD;aa;1;"CSM SI/DSAFS/CSoRH/GAPF";ALOUI;Lamiaa;lamiaa.aloui@laposte.fr;"CSM SI/DSAFS/CSoRH/CC-HWD";RICHARD;Philippe;philippe1.richard@laposte.fr;;;;
+62;j5m;MAP;SGBD;wm;1;"CSM SI/DSAFS/CSoRH/GID";HALLER-DUDICK;"PIERRE HENRI";pierre-henri.haller@laposte.fr;"CSM SI/DSAFS/CSoRH/CC-HWD";LISSILLOUR;MORGANE;morgane.lissillour@laposte.fr;;;;
+63;j6c;"WEB 1202";SGBD;aw;0;NULL;NULL;NULL;NULL;ENSEIGNE;GREGORI;Catherine;catherine.gregori@laposte.fr;NULL;NULL;NULL;NULL
+64;ats;PETRA;SGBD;aa;0;DHA;MUTIN;ISABELLE;isabelle.mutin@laposte.fr;"CSM SI/DSAFS/CCSAP";"COULANGE ";LYDIA;lydia.coulange@laposte.fr;DFI/DFCG;BLART-SEELEY;VERONIQUE;veronique.blart-seeley@laposte.fr
+65;tr_;TRANSAT;SGBD;aa;1;"CSM SI/DPI/DAIDC";BLANGY;CHRISTOPHE;christophe.blangy@laposte.fr;"CSM SI/DPI/DPRIT";HODY;GEORGES;georges.hody@laposte.fr;;;;
+66;oh_;SCOPE;SGBD;aa;0;;;;;-;CHRISTIAEN;MURIEL;muriel.christiaen@laposte.fr;;;;
+67;de_;ADAGE;SGBD;aa;1;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL
+68;z5_;"SIBP REF PREPA RLP";SGBD;ta;0;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL
+69;z7_;"REF PREPA LBP";SGBD;aa;0;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL
+70;j4p;OGA-GAPF;SGBD;ac;0;"CSM SI/DSAFS/CSoRH/GAPF";WEBER;Daniele;daniele.weber@laposte.fr;"CSM SI/DSAFS/CSoRH/GAPF";DECRY;Maxime;maxime.decry@laposte.fr;;;;
+71;z5_;"SIGP REF PREPA RLP AA";SGBD;aa;0;;;;;DSICentrale/CSoRH;Blanchard;Roland;roland.blanchard@laposte.fr;DSICentrale/CSoRH;Fagot;Severine;severine.fagot@laposte.fr
+72;lr_;NET-RH;SGBD;wa;0;"CSM SI/DSAFS/CSoRH/GAPF";ALOUI;Lamiaa;lamiaa.aloui@laposte.fr;"CSM SI/DSAFS/CSoRH/CC-HWD";LISSILLOUR;Morgane;morgane.lissillour@laposte.fr;;;;
+73;j8a;"COUCHE D'ECHANGES";SGBD;aa;0;;;;;"CSM SI/DSAFS/CSoRH/CC-HWD";NAULIN;CHRISTOPHE;christophe.naulin@laposte.fr;"CSM SI/DSAFS/CSoRH/CC-HWD";SKOWRONSKI;CHRISTINE;christine.skowronski@laposte.fr
+74;m1_;"MBE INTERIM";SGBD;aa;0;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL
+75;l6_;WOASIS;SGBD;aa;0;"CSM SI/DPI/DSTRS";RAYER;ERIC;eric.rayer-prestataire@laposte.fr;"CSM SI/DSAFS/C3S";GUILBAUD;JOHAN;johan.guilbaud-prestataire@laposte.fr;;;;
+76;cv_;"CHEQUES VACANCES";SGBD;aa;0;DNAS;LAGARDE;PIERRE;pierre.lagarde@laposte.fr;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL
+77;j2d;"EMG - CRME";SGBD;wd;1;"CSM SI/DSAFS/CSoRH/GID";HALLER-DUDICK;"PIERRE HENRI";pierre-henri.haller@laposte.fr;"CSM SI/DSAFS/CSoRH/CC-HWD";LISSILLOUR;Morgane;morgane.lissillour@laposte.fr;;;;
+78;j4k;REF-ID;SGBD;ac;1;"CSM SI/DSAFS/CSoRH/GID";"MOA REFID";;moa-id-gapf.dsictr@laposte.fr;"CSM SI/DSAFS/CSoRH/GID";"HENRY ";MARYVONNE;maryvonne.henry@laposte.fr;"CSM SI/DSAFS/CSoRH/GID";ADAM;CHRISTOPHE;christophe.adam@laposte.fr
+79;ep_;SAP;SGBD;aa;0;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL
+1000;j4k;REF-ID;SGBD;ad;1;"CSM SI/DSAFS/CSoRH/GID";"MOA REFID";;moa-id-gapf.dsictr@laposte.fr;"CSM SI/DSAFS/CSoRH/GID";HENRY;MARYVONNE;maryvonne.henry@laposte.fr;"CSM SI/DSAFS/CSoRH/GID";ADAM;STEPHANE;stephane.adam@laposte.fr
+1001;pm_;PGF;SGBD;aa;1;-;HATTON;Florent;florent.hatton@laposte.fr;-;SFEIR;Serge;serge.sfeir-prestataire@laposte.fr;;;;
+1002;pm_;"DATAMART RH";SGBD;ab;1;-;HATTON;Florent;florent.hatton@laposte.fr;-;SFEIR;Serge;serge.sfeir-prestataire@laposte.fr;;;;
+1003;sfn;"AGIRH new";SGBD;aa;1;"CSM SI/DSAFS/CSoRH/SFN";DECOUVELAERE;JOHANA;johana.decouvelaere@laposte.fr;"CSM SI/DSAFS/CSoRH/CC-HWD";ALLAIN;STEPHANIE;stephanie.allain@laposte.fr;;;;
+1004;e6_;OCA;SGBD;aa;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL
+1005;j5u;LIMMA;SGBD;wu;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL
+1006;br_;DSIBR;SGBD;aa;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL
+1007;lbb;SILOE;SGBD;aa;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL
+1008;ib3;SILEX;SGBD;aa;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL
+1009;nta;"REF ACCEDANTS";SGBD;aa;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL
+1011;kd_;SEQUOIA;SGBD;aa;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL

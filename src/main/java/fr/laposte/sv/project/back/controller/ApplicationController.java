@@ -19,6 +19,7 @@ public class ApplicationController {
     @Autowired
     private ApplicationRepository applicationRepository;
 
+
     @GetMapping("/tout")
     public Collection<Application> findAll() {
 

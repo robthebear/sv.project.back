@@ -5,6 +5,7 @@ import fr.laposte.sv.project.back.model.Application;
 import fr.laposte.sv.project.back.model.WebService;
 import fr.laposte.sv.project.back.repository.ApplicationRepository;
 import fr.laposte.sv.project.back.repository.WebServiceRepository;
+import fr.laposte.sv.project.back.service.WebServiceService;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,6 +20,9 @@ public class WebServiceController {
 
     @Autowired
     private WebServiceRepository webServiceRepository;
+
+    @Autowired
+    private WebServiceService webServiceService;
 
     @Autowired
     private ApplicationRepository applicationRepository;
@@ -40,7 +44,7 @@ public class WebServiceController {
         if (app.isPresent()) {
             webService.setApplication(app.get());}
         //TODO else
-        return webServiceRepository.saveAndFlush(webService);
+        return webServiceService.saveWebService(webService);
     }
 
 //    @PostMapping

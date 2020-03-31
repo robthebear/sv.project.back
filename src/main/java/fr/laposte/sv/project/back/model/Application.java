@@ -32,4 +32,13 @@ public class Application implements Serializable {
     List<WebService> webService;
 
 
+    public Application(String application) {
+        this.id = application;
+    }
+
+    public Application(String id, String libelle, String type) {
+        this.id = id;
+        this.libelle = libelle;
+        this.type = type;
+    }
 }
