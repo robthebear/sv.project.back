@@ -3,9 +3,9 @@
 INSERT INTO sv_project.application (id, libelle, type) VALUES ('l3s', 'bla bla bla', 'oreirjgfe');
 INSERT INTO sv_project.application (id, libelle, type) VALUES ('l5t', 'tuc tic tac', 'blop');
 
-INSERT INTO sv_project.web_service (date_creation, libelle_web_service, web_service, application) VALUES  ('2020-01-21', 'bla bla bla', 'blo blo', 'l3s');
+INSERT INTO sv_project.web_service (date_creation, libelle_web_service, web_service, application) VALUES  ('2020-01-21', 'bla bla bla', 'j2b', 'GTM');
 INSERT INTO sv_project.web_service  (date_creation, libelle_web_service, web_service, application) VALUES ('2019-05-10', 'loosing', 'look', 'l5t');
-INSERT INTO sv_project.web_service (date_creation, libelle_web_service, web_service, application) VALUES  ('2020-01-21', 'bla bla bla', 'blo blo blo', 'l3s');
+INSERT INTO sv_project.web_service (date_creation, libelle_web_service, web_service, application) VALUES  ('2020-01-21', 'bla bla bla', 'j2b', 'l3s');
 INSERT INTO sv_project.web_service  (date_creation, libelle_web_service, web_service, application) VALUES ('2019-05-10', 'loosing', 'lookY', 'l5t');
 INSERT INTO sv_project.web_service (date_creation, libelle_web_service, web_service, application) VALUES  ('2020-01-21', 'bla bla bla', 'blo', 'l3s');
 INSERT INTO sv_project.web_service  (date_creation, libelle_web_service, web_service, application) VALUES ('2019-05-10', 'loosing', 'looka', 'l5t');

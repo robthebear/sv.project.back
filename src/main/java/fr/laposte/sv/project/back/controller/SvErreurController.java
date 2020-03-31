@@ -18,8 +18,8 @@ import java.util.Optional;
 @RequestMapping("/sverreur")
 public class SvErreurController {
 
-//    @Autowired
-//    private ExtractionDonnee extractionDonnee;
+@Autowired
+private SvErreurService svErreurService;
 
     @Autowired
     private SvErreurRepository svErreurRepository;
@@ -27,8 +27,9 @@ public class SvErreurController {
     @Autowired
     private WebServiceRepository webServiceRepository;
 
-    @Autowired
-    private SvErreurService svErreurService;
+
+
+
 
     @GetMapping
     public Collection<SvErreur> findAll() {
@@ -50,8 +51,6 @@ public class SvErreurController {
         final Optional<WebService> web = webServiceRepository.findByWebService(svErreur.getWebService().getWebService());
         if (web.isPresent()) {
             svErreur.setWebService(web.get());
-
-
         }
 System.out.print(svErreur);
         return svErreurService.saveSvErreur(svErreur);

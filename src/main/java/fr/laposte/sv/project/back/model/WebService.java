@@ -42,5 +42,6 @@ public class WebService implements Serializable {
 
 
     public WebService(String webservice) {
+        this.webService = webservice;
     }
 }

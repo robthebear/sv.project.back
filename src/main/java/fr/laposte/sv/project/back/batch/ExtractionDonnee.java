@@ -3,13 +3,11 @@ package fr.laposte.sv.project.back.batch;
 
 
 import fr.laposte.sv.project.back.model.SvErreur;
-import fr.laposte.sv.project.back.model.WebService;
 import fr.laposte.sv.project.back.repository.SvErreurRepository;
 import fr.laposte.sv.project.back.repository.WebServiceRepository;
 import fr.laposte.sv.project.back.service.SvErreurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -21,7 +19,7 @@ import java.text.ParseException;
 public class ExtractionDonnee {
 
 @Autowired
-    SvErreurService svErreurService;
+SvErreurService svErreurService;
 
 @Autowired
     WebServiceRepository webServiceRepository;
@@ -39,9 +37,7 @@ public void extraireErreur () {
     String ligne;
     try {
         while ((ligne=br.readLine()) != null) {
-//            System.out.println(ligne);
             String  tabErreur [] = ligne.split(";", -1);
-//            System.out.println(tabErreur[0]);
             SvErreur batchSvErreur = new SvErreur(
                     tabErreur[6],
                     tabErreur[7],
@@ -49,7 +45,7 @@ public void extraireErreur () {
                     tabErreur[10],
                     tabErreur[13],
                     tabErreur[0]);
-            System.out.println(batchSvErreur);
+
                     svErreurService.saveSvErreur(batchSvErreur);
 
         }
@@ -57,7 +53,5 @@ public void extraireErreur () {
         e.printStackTrace();
     }
 }
-    public ExtractionDonnee(){
-        extraireErreur();
-    }
+
 }
