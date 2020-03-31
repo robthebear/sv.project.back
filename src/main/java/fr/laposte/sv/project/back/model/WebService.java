@@ -6,6 +6,8 @@ import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -43,5 +45,14 @@ public class WebService implements Serializable {
 
     public WebService(String webservice) {
         this.webService = webservice;
+    }
+
+    public WebService(String dateCreation, String libelleWebService, String webService, String application) throws ParseException {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss:SSS");
+        this.dateCreation = formatter.parse(dateCreation);
+        this.libelleWebService = libelleWebService;
+        this.webService = webService;
+        this.application = new Application(application);
+
     }
 }
