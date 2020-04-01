@@ -19,5 +19,6 @@ public class Application implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		extractionDonnee.extraireApplication();
 		extractionDonnee.extraireErreur();
+		extractionDonnee.extraireSuivi();
 	}
 }

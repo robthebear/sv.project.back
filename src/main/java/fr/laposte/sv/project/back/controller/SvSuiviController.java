@@ -4,6 +4,7 @@ import fr.laposte.sv.project.back.model.SvSuivi;
 import fr.laposte.sv.project.back.model.WebService;
 import fr.laposte.sv.project.back.repository.SvSuiviRepository;
 import fr.laposte.sv.project.back.repository.WebServiceRepository;
+import fr.laposte.sv.project.back.service.SvSuiviService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,6 +22,8 @@ public class SvSuiviController {
 
             @Autowired
     WebServiceRepository webServiceRepository;
+            @Autowired
+    SvSuiviService svSuiviService;
 
             @GetMapping
     public Collection<SvSuivi> findAll() {
@@ -33,6 +36,6 @@ public class SvSuiviController {
                     svSuivi.setWebService(web.get());
                 }
                 System.out.print(svSuivi);
-                return svSuiviRepository.saveAndFlush(svSuivi);
+                return svSuiviService.saveSvSuivi(svSuivi);
             }
 }

@@ -7,6 +7,8 @@ import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @FieldDefaults(level = AccessLevel.PRIVATE)
@@ -29,4 +31,13 @@ public class SvSuivi implements Serializable {
     WebService webService;
 
 
+    public SvSuivi(String dateDebut, String dateFin, String statutRetour, String statutHttp, String webservice) throws ParseException {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss:SSS");
+
+        this.dateDebut = formatter.parse(dateDebut);
+        this.dateFin = formatter.parse(dateFin);
+        this.statutRetour = statutRetour;
+        this.statutHttp = statutHttp;
+        this.webService = new WebService(webservice);
+    }
 }
