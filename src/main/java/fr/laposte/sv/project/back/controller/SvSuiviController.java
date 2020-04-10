@@ -13,7 +13,7 @@ import java.util.Optional;
 
 
 @RestController
-@CrossOrigin("*")
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("svsuivi")
 public class SvSuiviController {
 
@@ -29,13 +29,15 @@ public class SvSuiviController {
     public Collection<SvSuivi> findAll() {
                 return svSuiviRepository.findAll();
             }
-            @PostMapping
-    public SvSuivi ajoutSvSuivi (@RequestBody SvSuivi svSuivi) {
-                final Optional<WebService> web = webServiceRepository.findByWebService(svSuivi.getWebService().getWebService());
-                if (web.isPresent()){
-                    svSuivi.setWebService(web.get());
-                }
-                System.out.print(svSuivi);
-                return svSuiviService.saveSvSuivi(svSuivi);
-            }
+
+
+//            @PostMapping
+//    public SvSuivi ajoutSvSuivi (@RequestBody SvSuivi svSuivi) {
+//                final Optional<WebService> web = webServiceRepository.findByWebService(svSuivi.getWebService().getWebService());
+//                if (web.isPresent()){
+//                    svSuivi.setWebService(web.get());
+//                }
+//                System.out.print(svSuivi);
+//                return svSuiviService.saveSvSuivi(svSuivi);
+//            }
 }

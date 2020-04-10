@@ -14,7 +14,7 @@ import java.util.Optional;
 
 
 @RestController
-@CrossOrigin("*")
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/sverreur")
 public class SvErreurController {
 
@@ -46,13 +46,13 @@ private SvErreurService svErreurService;
 //        return svErreurRepository.saveAndFlush(svErreur);
 //    }
 
-    @PostMapping
-    public SvErreur ajoutSvErreur (@RequestBody SvErreur svErreur) {
-        final Optional<WebService> web = webServiceRepository.findByWebService(svErreur.getWebService().getWebService());
-        if (web.isPresent()) {
-            svErreur.setWebService(web.get());
-        }
-System.out.print(svErreur);
-        return svErreurService.saveSvErreur(svErreur);
-    }
+//    @PostMapping
+//    public SvErreur ajoutSvErreur (@RequestBody SvErreur svErreur) {
+//        final Optional<WebService> web = webServiceRepository.findByWebService(svErreur.getWebService().getWebService());
+//        if (web.isPresent()) {
+//            svErreur.setWebService(web.get());
+//        }
+//System.out.print(svErreur);
+//        return svErreurService.saveSvErreur(svErreur);
+//    }
 }

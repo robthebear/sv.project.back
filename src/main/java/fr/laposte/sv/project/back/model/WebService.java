@@ -9,7 +9,9 @@ import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Setter
@@ -32,15 +34,15 @@ public class WebService implements Serializable {
 
     @OneToMany(mappedBy = "webService", orphanRemoval = true)
     @JsonManagedReference
-    List<SvErreur> svErreur;
+    Set<SvErreur> svErreur = new HashSet<>();
 
     @OneToMany(mappedBy = "webService", orphanRemoval = true)
     @JsonManagedReference
-    List<SvSuivi> svSuivi;
+    Set<SvSuivi> svSuivi = new HashSet<>();
 
     @OneToMany(mappedBy = "webService", orphanRemoval = true)
     @JsonManagedReference
-    List<SvStatistique> svStatistique;
+    Set<SvStatistique> svStatistique = new HashSet<>();
 
 
     public WebService(String webservice) {
