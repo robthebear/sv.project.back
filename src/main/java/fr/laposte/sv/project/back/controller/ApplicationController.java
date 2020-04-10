@@ -12,7 +12,7 @@ import java.util.Collection;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin("*")
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/application")
 public class ApplicationController {
 
@@ -20,7 +20,7 @@ public class ApplicationController {
     private ApplicationRepository applicationRepository;
 
 
-    @GetMapping("/tout")
+    @GetMapping
     public Collection<Application> findAll() {
 
         return applicationRepository.findAll();

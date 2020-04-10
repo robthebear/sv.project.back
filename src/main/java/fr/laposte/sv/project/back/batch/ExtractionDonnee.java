@@ -38,6 +38,7 @@ public class ExtractionDonnee {
     @Autowired
     SvSuiviService svSuiviService;
 
+
     public void extraireApplication() {
         FileReader fr = null;
 
@@ -57,7 +58,7 @@ public class ExtractionDonnee {
                             tabApplication[2],
                             tabApplication[3]);
                     if (applicationRepository.findById(tabApplication[0]).isPresent()) {
-                        System.out.println("Application presente");
+                        applicationRepository.saveAndFlush(batchApplication);
                     } else {
                         applicationRepository.saveAndFlush(batchApplication);
                     }
@@ -183,6 +184,7 @@ public class ExtractionDonnee {
 
 
                 SvErreur batchSvErreur = new SvErreur(
+
                         tabErreur[6],
                         tabErreur[7],
                         tabErreur[9],
@@ -193,7 +195,7 @@ public class ExtractionDonnee {
                 svErreurService.saveSvErreur(batchSvErreur);
 
             }
-        } catch (IOException | ParseException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

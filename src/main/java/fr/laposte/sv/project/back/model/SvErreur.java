@@ -1,7 +1,8 @@
 package fr.laposte.sv.project.back.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.sun.beans.decoder.ValueObject;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.sun.javafx.util.Utils;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -9,9 +10,10 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Collection;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
-import java.util.Optional;
 
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Setter
@@ -23,8 +25,12 @@ public class SvErreur implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
-    Date dateDebut;
-    Date dateFin;
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    LocalDate date;
+    @JsonFormat(pattern = "HH:mm:ss:SSS")
+    LocalTime heureDebut;
+    @JsonFormat(pattern = "HH:mm:ss:SSS")
+    LocalTime heureFin;
     String statutRetour;
     String statutHttp;
     String libelleErreur;
@@ -33,15 +39,26 @@ public class SvErreur implements Serializable {
     @JoinColumn(name = "web_service", referencedColumnName = "id")
     WebService webService;
 
-    public SvErreur(String dateDebut, String dateFin, String statutRetour, String statutHttp, String libelleErreur, String webservice) throws ParseException {
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss:SSS");
+    public SvErreur(String dateHeureDebut, String heureFin, String statutRetour, String statutHttp, String libelleErreur, String webservice) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateTimeFormatter formatTime = DateTimeFormatter.ofPattern("HH:mm:ss:SSS");
 
-        this.dateDebut = formatter.parse(dateDebut);
-        this.dateFin = formatter.parse(dateFin);
+        String dateR[] = dateHeureDebut.split(" ");
+        String heure[] = heureFin.split(" ");
+
+        this.date = LocalDate.parse(dateR[0], formatter);
+        this.heureDebut = LocalTime.parse(dateR[1], formatTime);
+        this.heureFin = LocalTime.parse(heure[1], formatTime);
         this.statutRetour = statutRetour;
         this.statutHttp = statutHttp;
         this.libelleErreur = libelleErreur;
         this.webService = new WebService(webservice);
+
+//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+//        return LocalDate.parse(date, formatter);
+//
+//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+//        return LocalTime.parse(time, formatter);
 
     }
 

@@ -14,7 +14,7 @@ import java.util.Collection;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin("*")
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/webservice")
 public class WebServiceController {
 
@@ -37,15 +37,15 @@ public class WebServiceController {
         return webServiceRepository.findByWebService(webService);
     }
 
-    @PostMapping
-    public WebService ajoutWebservice(@RequestBody WebService webService) {
-        System.out.print(webService);
-        final Optional<Application> app = applicationRepository.findById(webService.getApplication().getId());
-        if (app.isPresent()) {
-            webService.setApplication(app.get());}
-        //TODO else
-        return webServiceService.saveWebService(webService);
-    }
+//    @PostMapping
+//    public WebService ajoutWebservice(@RequestBody WebService webService) {
+//        System.out.print(webService);
+//        final Optional<Application> app = applicationRepository.findById(webService.getApplication().getId());
+//        if (app.isPresent()) {
+//            webService.setApplication(app.get());}
+//        //TODO else
+//        return webServiceService.saveWebService(webService);
+//    }
 
 //    @PostMapping
 //    public WebService ajoutWebservice(@RequestBody WebService webService, @RequestBody Application application) {

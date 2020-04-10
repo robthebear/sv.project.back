@@ -10,10 +10,7 @@ import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 
 @FieldDefaults(level = AccessLevel.PRIVATE)
@@ -29,7 +26,7 @@ public class Application implements Serializable {
     String type;
     @OneToMany(mappedBy = "application", orphanRemoval = true)
     @JsonManagedReference
-    List<WebService> webService;
+    Set<WebService> webService = new HashSet<>();
 
 
     public Application(String application) {
