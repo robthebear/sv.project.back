@@ -27,6 +27,7 @@ public class WebService implements Serializable {
     int id;
     String webService;
     String libelleWebService;
+    @JsonFormat(pattern = "dd/MM/yyyy")
     LocalDate dateCreation;
 
     @ManyToOne
