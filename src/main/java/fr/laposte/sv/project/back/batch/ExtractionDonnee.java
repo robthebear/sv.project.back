@@ -19,6 +19,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.text.ParseException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -113,7 +115,7 @@ public class ExtractionDonnee {
                                 tabSuivi[5],
                                 tabSuivi[4],
                                 tabSuivi[0]);
-                        if ((webServiceRepository.findByWebService(tabSuivi[4])).isPresent()) {
+                        if ((webServiceService.findByWebService(tabSuivi[4]).isPresent()) ) {
                             System.out.println("WebService présent en base");
                         } else {
                             webServiceService.saveWebService(batchWebService);
@@ -139,8 +141,6 @@ public class ExtractionDonnee {
 
     public void extraireErreur() {
         FileReader fr = null;
-        FileReader fr2;
-        int count = 0;
 
         try {
             fr = new FileReader("src/main/resources/erreurs_gtm-webservices.log");
@@ -172,10 +172,30 @@ public class ExtractionDonnee {
                             tabErreur[5],
                             tabErreur[4],
                             tabErreur[0]);
-                    if ((webServiceRepository.findByWebService(tabErreur[4])).isPresent()) {
-                        System.out.println("WebService présent en base");
+                    if ((webServiceService.findByWebService(batchWebService.getWebService()).isPresent())) {
+//
+//                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+//                        String date[] = tabErreur[6].split(" ");
+//                        LocalDate dateCreation = LocalDate.parse(date[0], formatter);
+//                        LocalDate date1 = webServiceService.findDateCreation(batchWebService.getWebService());
+//
+//                        if (dateCreation.compareTo(date1) > 0 || date1.compareTo(dateCreation) < 0){
+//                            System.out.println(dateCreation);
+//                            System.out.println(date1);
+//
+//
+//                            webServiceService.updateWebService(batchWebService, dateCreation);
+//                            System.out.println("webservice updaté");
+//                        }
+//                        else if  (dateCreation.isBefore(date1))
+//                    {webServiceService.updateWebService(batchWebService, dateCreation);
+//                            System.out.println("date ok");
+//                        }
+
                     } else {
+                        System.out.println(batchWebService);
                         webServiceService.saveWebService(batchWebService);
+                        System.out.println("webservice enregistré");
                     }
 
                 } catch (ParseException e) {

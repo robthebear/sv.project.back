@@ -1,9 +1,10 @@
-package fr.laposte.sv.project.back.service;
+package fr.laposte.sv.project.back.service.impl;
 
 import fr.laposte.sv.project.back.model.SvSuivi;
 import fr.laposte.sv.project.back.model.WebService;
 import fr.laposte.sv.project.back.repository.SvSuiviRepository;
 import fr.laposte.sv.project.back.repository.WebServiceRepository;
+import fr.laposte.sv.project.back.service.SvSuiviService;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;

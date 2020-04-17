@@ -1,9 +1,10 @@
-package fr.laposte.sv.project.back.service;
+package fr.laposte.sv.project.back.service.impl;
 
 import fr.laposte.sv.project.back.model.SvErreur;
 import fr.laposte.sv.project.back.model.WebService;
 import fr.laposte.sv.project.back.repository.SvErreurRepository;
 import fr.laposte.sv.project.back.repository.WebServiceRepository;
+import fr.laposte.sv.project.back.service.SvErreurService;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;

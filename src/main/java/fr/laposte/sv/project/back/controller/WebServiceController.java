@@ -53,6 +53,10 @@ public class WebServiceController {
 //return webServiceRepository.saveAndFlush(webService.);
 //    }
 
+//    @PutMapping
+//    public WebService updateWebService(WebService webService) {
+//        return webServiceService.updateWebService(webService);
+//    }
 
 
     @DeleteMapping("{id}")

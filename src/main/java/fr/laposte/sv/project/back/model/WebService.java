@@ -8,6 +8,8 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -25,7 +27,8 @@ public class WebService implements Serializable {
     int id;
     String webService;
     String libelleWebService;
-    Date dateCreation;
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    LocalDate dateCreation;
 
     @ManyToOne
     @JsonBackReference
@@ -50,11 +53,20 @@ public class WebService implements Serializable {
     }
 
     public WebService(String dateCreation, String libelleWebService, String webService, String application) throws ParseException {
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss:SSS");
-        this.dateCreation = formatter.parse(dateCreation);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String dateR[] = dateCreation.split(" ");
+        this.dateCreation = LocalDate.parse(dateR[0], formatter);
         this.libelleWebService = libelleWebService;
         this.webService = webService;
         this.application = new Application(application);
+
+    }
+
+    public WebService(String webService, String libelleWebService, LocalDate dateCreation) {
+
+        this.webService = webService;
+        this.libelleWebService = libelleWebService;
+        this.dateCreation = dateCreation;
 
     }
 }
