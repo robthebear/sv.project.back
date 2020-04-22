@@ -6,6 +6,7 @@ import lombok.experimental.FieldDefaults;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import java.io.Serializable;
 
 @FieldDefaults (level = AccessLevel.PRIVATE)
@@ -22,6 +23,7 @@ public class Correspondant implements Serializable {
     String fonction;
     String email;
     String telephone;
+
 
 
 }

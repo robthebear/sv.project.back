@@ -25,11 +25,8 @@ public class SvErreur implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
-    @JsonFormat(pattern = "dd/MM/yyyy")
     LocalDate date;
-    @JsonFormat(pattern = "HH:mm:ss:SSS")
     LocalTime heureDebut;
-    @JsonFormat(pattern = "HH:mm:ss:SSS")
     LocalTime heureFin;
     String statutRetour;
     String statutHttp;

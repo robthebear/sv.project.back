@@ -18,14 +18,11 @@ import java.util.Optional;
 @RequestMapping("/sverreur")
 public class SvErreurController {
 
-@Autowired
-private SvErreurService svErreurService;
 
     @Autowired
     private SvErreurRepository svErreurRepository;
 
-    @Autowired
-    private WebServiceRepository webServiceRepository;
+
 
 
 

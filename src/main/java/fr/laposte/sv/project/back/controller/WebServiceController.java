@@ -34,8 +34,9 @@ public class WebServiceController {
 
     @GetMapping("/parWS/{webService}")
     public Optional<WebService> findByWebService(@PathVariable String webService) {
-        return webServiceRepository.findByWebService(webService);
+        return webServiceService.findByWebService(webService);
     }
+
 
 //    @PostMapping
 //    public WebService ajoutWebservice(@RequestBody WebService webService) {

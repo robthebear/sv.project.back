@@ -10,7 +10,6 @@ import fr.laposte.sv.project.back.repository.WebServiceRepository;
 import fr.laposte.sv.project.back.service.SvErreurService;
 import fr.laposte.sv.project.back.service.SvSuiviService;
 import fr.laposte.sv.project.back.service.WebServiceService;
-import javafx.scene.control.Tab;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -21,8 +20,6 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 @Component
 public class ExtractionDonnee {
@@ -115,10 +112,35 @@ public class ExtractionDonnee {
                                 tabSuivi[5],
                                 tabSuivi[4],
                                 tabSuivi[0]);
-                        if ((webServiceService.findByWebService(tabSuivi[4]).isPresent()) ) {
-                            System.out.println("WebService présent en base");
+                        if ((webServiceService.findByWebService(batchWebService.getWebService()).isPresent())) {
+
+                            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                            String date[] = tabSuivi[6].split(" ");
+                            LocalDate date1 = LocalDate.parse(date[0], formatter);
+                            LocalDate dateCreation = webServiceService.findDateCreation(batchWebService.getWebService());
+
+                            if (dateCreation.isBefore(date1)){
+                                System.out.println(dateCreation);
+                                System.out.println(date1);
+                                System.out.println("webservice ok");
+
+
+                            }
+                            else if (date1.isBefore(dateCreation)) {
+
+                                System.out.println(dateCreation);
+                                System.out.println(date1);
+                                int id = webServiceService.findIdByWebService(batchWebService.getWebService());
+
+                                webServiceService.modifierWebService(batchWebService, id);
+                                System.out.println("webservice updaté");
+                            }
+
+
                         } else {
+                            System.out.println(batchWebService);
                             webServiceService.saveWebService(batchWebService);
+                            System.out.println("webservice enregistré");
                         }
 
                     } catch (ParseException e) {
@@ -173,24 +195,29 @@ public class ExtractionDonnee {
                             tabErreur[4],
                             tabErreur[0]);
                     if ((webServiceService.findByWebService(batchWebService.getWebService()).isPresent())) {
-//
-//                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-//                        String date[] = tabErreur[6].split(" ");
-//                        LocalDate dateCreation = LocalDate.parse(date[0], formatter);
-//                        LocalDate date1 = webServiceService.findDateCreation(batchWebService.getWebService());
-//
-//                        if (dateCreation.compareTo(date1) > 0 || date1.compareTo(dateCreation) < 0){
-//                            System.out.println(dateCreation);
-//                            System.out.println(date1);
-//
-//
-//                            webServiceService.updateWebService(batchWebService, dateCreation);
-//                            System.out.println("webservice updaté");
-//                        }
-//                        else if  (dateCreation.isBefore(date1))
-//                    {webServiceService.updateWebService(batchWebService, dateCreation);
-//                            System.out.println("date ok");
-//                        }
+
+                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                        String date[] = tabErreur[6].split(" ");
+                        LocalDate date1 = LocalDate.parse(date[0], formatter);
+                        LocalDate dateCreation = webServiceService.findDateCreation(batchWebService.getWebService());
+
+                        if (dateCreation.isBefore(date1)){
+                            System.out.println(dateCreation);
+                            System.out.println(date1);
+                            System.out.println("webservice ok");
+
+
+                        }
+                        else if (date1.isBefore(dateCreation)) {
+
+                            System.out.println(dateCreation);
+                            System.out.println(date1);
+                            int id = webServiceService.findIdByWebService(batchWebService.getWebService());
+
+                            webServiceService.modifierWebService(batchWebService, id);
+                            System.out.println("webservice updaté");
+                        }
+
 
                     } else {
                         System.out.println(batchWebService);

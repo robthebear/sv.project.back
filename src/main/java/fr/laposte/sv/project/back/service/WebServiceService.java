@@ -13,7 +13,9 @@ public interface WebServiceService {
 
     Optional<WebService> findByWebService(String webService);
 
-    WebService updateWebService(WebService webService, LocalDate date);
+    WebService modifierWebService(WebService webService, int id);
 
     LocalDate findDateCreation(String webService);
+
+    int findIdByWebService(String webService);
 }
