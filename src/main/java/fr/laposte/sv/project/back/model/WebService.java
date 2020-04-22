@@ -61,4 +61,12 @@ public class WebService implements Serializable {
         this.application = new Application(application);
 
     }
+
+    public WebService(String webService, String libelleWebService, LocalDate dateCreation) {
+
+        this.webService = webService;
+        this.libelleWebService = libelleWebService;
+        this.dateCreation = dateCreation;
+
+    }
 }
