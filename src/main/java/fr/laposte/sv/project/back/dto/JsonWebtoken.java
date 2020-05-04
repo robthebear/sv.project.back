@@ -2,13 +2,13 @@ package fr.laposte.sv.project.back.dto;
 
 
 public class JsonWebtoken {
-    private final String token;
+    private final String access_token;
 
     public JsonWebtoken(String token) {
-        this.token = token;
+        this.access_token = token;
     }
 
-    public String getToken() {
-        return token;
+    public String getAccess_token() {
+        return access_token;
     }
 }

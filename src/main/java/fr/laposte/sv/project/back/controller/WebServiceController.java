@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 import java.util.Optional;
+import java.util.Set;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -35,6 +36,10 @@ public class WebServiceController {
     @GetMapping("/parWS/{webService}")
     public Optional<WebService> findByWebService(@PathVariable String webService) {
         return webServiceService.findByWebService(webService);
+    }
+    @GetMapping("/parApp/{codeApplication}")
+    public Set<WebService> findWebServiceByApplication(@PathVariable Application codeApplication) {
+        return webServiceService.findWebServiceByApplication(codeApplication);
     }
 
 

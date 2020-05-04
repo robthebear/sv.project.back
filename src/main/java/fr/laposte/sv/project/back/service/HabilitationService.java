@@ -11,7 +11,7 @@ import java.util.Optional;
 @Service
 public interface HabilitationService {
 
-    String signin(String username, String password) throws InvalidCredentialsException;
+    String signin(String id, String motDePasse) throws InvalidCredentialsException;
 
     Habilitation signup(Habilitation user) throws ExistingUserNameException;
 

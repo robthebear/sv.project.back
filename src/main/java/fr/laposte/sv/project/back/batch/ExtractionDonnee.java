@@ -98,7 +98,7 @@ public class ExtractionDonnee {
                                 " ",
                                 " ");
                         if (applicationRepository.findById(tabSuivi[0]).isPresent()) {
-                            System.out.println("Application presente");
+//                            System.out.println("Application presente");
                         } else {
                             applicationRepository.saveAndFlush(batchApplication);
                         }
@@ -120,9 +120,9 @@ public class ExtractionDonnee {
                             LocalDate dateCreation = webServiceService.findDateCreation(batchWebService.getWebService());
 
                             if (dateCreation.isBefore(date1)){
-                                System.out.println(dateCreation);
-                                System.out.println(date1);
-                                System.out.println("webservice ok");
+//                                System.out.println(dateCreation);
+//                                System.out.println(date1);
+//                                System.out.println("webservice ok");
 
 
                             }
@@ -133,14 +133,14 @@ public class ExtractionDonnee {
                                 int id = webServiceService.findIdByWebService(batchWebService.getWebService());
 
                                 webServiceService.modifierWebService(batchWebService, id);
-                                System.out.println("webservice updaté");
+//                                System.out.println("webservice updaté");
                             }
 
 
                         } else {
                             System.out.println(batchWebService);
                             webServiceService.saveWebService(batchWebService);
-                            System.out.println("webservice enregistré");
+//                            System.out.println("webservice enregistré");
                         }
 
                     } catch (ParseException e) {
@@ -180,7 +180,7 @@ public class ExtractionDonnee {
                             " ",
                             " ");
                     if (applicationRepository.findById(tabErreur[0]).isPresent()) {
-                        System.out.println("Application presente");
+//                        System.out.println("Application presente");
                     } else {
                         applicationRepository.saveAndFlush(batchApplication);
                     }
@@ -202,9 +202,9 @@ public class ExtractionDonnee {
                         LocalDate dateCreation = webServiceService.findDateCreation(batchWebService.getWebService());
 
                         if (dateCreation.isBefore(date1)){
-                            System.out.println(dateCreation);
-                            System.out.println(date1);
-                            System.out.println("webservice ok");
+//                            System.out.println(dateCreation);
+//                            System.out.println(date1);
+//                            System.out.println("webservice ok");
 
 
                         }
@@ -215,14 +215,14 @@ public class ExtractionDonnee {
                             int id = webServiceService.findIdByWebService(batchWebService.getWebService());
 
                             webServiceService.modifierWebService(batchWebService, id);
-                            System.out.println("webservice updaté");
+//                            System.out.println("webservice updaté");
                         }
 
 
                     } else {
                         System.out.println(batchWebService);
                         webServiceService.saveWebService(batchWebService);
-                        System.out.println("webservice enregistré");
+//                        System.out.println("webservice enregistré");
                     }
 
                 } catch (ParseException e) {
