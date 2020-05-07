@@ -6,12 +6,10 @@ import fr.laposte.sv.project.back.repository.ApplicationRepository;
 import fr.laposte.sv.project.back.repository.WebServiceRepository;
 import fr.laposte.sv.project.back.service.WebServiceService;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.time.LocalDate;
-import java.util.Collection;
-import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class WebServiceServiceImpl implements WebServiceService {
@@ -53,19 +51,13 @@ public class WebServiceServiceImpl implements WebServiceService {
         return id;
     }
 
+    @Override
+    public Set<WebService> findWebServiceByApplication(Application codeApplication) {
+        Set<WebService> webservice = webServiceRepository.findWebServiceByApplication(codeApplication);
+        return webservice;
+    }
 
-    //    public ResponseEntity<WebService> updateWebService(WebService webService) {
-//        Optional <WebService> webServiceEnBase = Optional.ofNullable((webServiceRepository.findByWebService(webService.getWebService())));
-//        if (webServiceEnBase.isPresent()){
-//if (webService.getDateCreation() == null) {
-//    webService.setDateCreation(webServiceEnBase.get().getDateCreation());
-//} if (webService.getLibelleWebService() == null) {
-//    webService.setLibelleWebService(webServiceEnBase.get().getLibelleWebService());
-//            } if (webService.getWebService() == null) {
-//    webService.setWebService(webServiceEnBase.get().getWebService());
-//            }
-//         return new ResponseEntity<WebService>(webServiceRepository.saveAndFlush(webService));}
-//    }
+
 
     @Override
     public WebService modifierWebService(WebService webService, int id) {

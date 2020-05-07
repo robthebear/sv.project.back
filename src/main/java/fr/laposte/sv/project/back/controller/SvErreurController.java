@@ -9,8 +9,10 @@ import fr.laposte.sv.project.back.service.SvErreurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Optional;
+import java.util.Set;
 
 
 @RestController
@@ -21,6 +23,9 @@ public class SvErreurController {
 
     @Autowired
     private SvErreurRepository svErreurRepository;
+
+    @Autowired
+    private SvErreurService svErreurService;
 
 
 
@@ -33,23 +38,12 @@ public class SvErreurController {
         return svErreurRepository.findAll();
     }
 
-//    @PostMapping
-//    public SvErreur ajoutSvErreur (@RequestBody SvErreur svErreur) {
-//        final Optional<WebService> web = webServiceRepository.findById(svErreur.getWebService().getId());
-//        if (web.isPresent()) {
-//            svErreur.setWebService(web.get());
-//        }
-//System.out.print(svErreur);
-//        return svErreurRepository.saveAndFlush(svErreur);
-//    }
+    @GetMapping("/parDate/{date1}/{date2}/{webservice}")
+    public Set<SvErreur> svErreurParDate(@PathVariable("date1") String dateDebut, @PathVariable("date2") String dateFin, @PathVariable("webservice") WebService webservice) {
+        LocalDate dateD = LocalDate.parse(dateDebut);
+        LocalDate dateF = LocalDate.parse(dateFin);
 
-//    @PostMapping
-//    public SvErreur ajoutSvErreur (@RequestBody SvErreur svErreur) {
-//        final Optional<WebService> web = webServiceRepository.findByWebService(svErreur.getWebService().getWebService());
-//        if (web.isPresent()) {
-//            svErreur.setWebService(web.get());
-//        }
-//System.out.print(svErreur);
-//        return svErreurService.saveSvErreur(svErreur);
-//    }
+        return svErreurService.svErreurParDate(webservice, dateD, dateF);
+    }
+
 }

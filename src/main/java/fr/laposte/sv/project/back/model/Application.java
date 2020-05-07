@@ -1,16 +1,15 @@
 package fr.laposte.sv.project.back.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.*;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @FieldDefaults(level = AccessLevel.PRIVATE)
@@ -18,7 +17,7 @@ import java.util.*;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "application")
+@Entity
 public class Application implements Serializable {
     @Id
     String id;
@@ -27,6 +26,16 @@ public class Application implements Serializable {
     @OneToMany(mappedBy = "application", orphanRemoval = true)
     @JsonManagedReference
     Set<WebService> webService = new HashSet<>();
+    @ManyToMany(cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })
+    @JoinTable(name = "application_correspondant",
+            joinColumns = @JoinColumn(name = "application_id"),
+            inverseJoinColumns = @JoinColumn(name = "correspondant_id"))
+//    @JsonBackReference
+@JsonIgnore
+    Set<Correspondant> correspondants;
 
 
     public Application(String application) {

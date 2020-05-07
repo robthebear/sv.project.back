@@ -16,6 +16,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/habilitation")
 public class HabilitationController {
 
@@ -41,6 +42,7 @@ public class HabilitationController {
 
     @PostMapping("/sign-in")
     public ResponseEntity<?> signIn(@RequestBody Habilitation user) {
+//        System.out.println("Coucou");
         try {
             return ResponseEntity.ok(new JsonWebtoken(habilitationService.signin(user.getId(), user.getMotDePasse())));
         } catch (InvalidCredentialsException ex) {

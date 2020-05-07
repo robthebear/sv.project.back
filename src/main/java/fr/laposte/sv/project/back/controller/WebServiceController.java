@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 import java.util.Optional;
+import java.util.Set;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -24,48 +25,52 @@ public class WebServiceController {
     @Autowired
     private WebServiceService webServiceService;
 
-    @Autowired
-    private ApplicationRepository applicationRepository;
 
+    /**
+     * Controller qui affiche tous les webservices
+     * @return la liste de tous les webservices
+     */
     @GetMapping
     public Collection<WebService> findAll() {
         return webServiceRepository.findAll();
     }
 
+    /**
+     * Controller qui recupere un objet webservice avec son nom
+     * @param webService
+     * @return
+     */
     @GetMapping("/parWS/{webService}")
     public Optional<WebService> findByWebService(@PathVariable String webService) {
         return webServiceService.findByWebService(webService);
     }
 
+    /**
+     * Controller qui recupere un objet webservice avec un code application
+     * @param codeApplication
+     * @return le webservice correspondant
+     */
+    @GetMapping("/parApp/{codeApplication}")
+    public Set<WebService> findWebServiceByApplication(@PathVariable Application codeApplication) {
+        return webServiceService.findWebServiceByApplication(codeApplication);
+    }
 
-//    @PostMapping
-//    public WebService ajoutWebservice(@RequestBody WebService webService) {
-//        System.out.print(webService);
-//        final Optional<Application> app = applicationRepository.findById(webService.getApplication().getId());
-//        if (app.isPresent()) {
-//            webService.setApplication(app.get());}
-//        //TODO else
-//        return webServiceService.saveWebService(webService);
-//    }
+    /**
+     * Controller qui recupere un objet Webservice grace à son id
+     * @param id
+     * @return le Webservice correspondant à cet id
+     */
+    @GetMapping("{id}")
+    public Optional<WebService> findbyId(@PathVariable int id){
+        return webServiceRepository.findById(id);
+    }
 
-//    @PostMapping
-//    public WebService ajoutWebservice(@RequestBody WebService webService, @RequestBody Application application) {
-//webService.setApplication(application);
-//return webServiceRepository.saveAndFlush(webService.);
-//    }
-
-//    @PutMapping
-//    public WebService updateWebService(WebService webService) {
-//        return webServiceService.updateWebService(webService);
-//    }
-
-
+    /**
+     * Controller qui permet de supprimer un objet webservice dans la base de donnée grace a son id
+     * @param id
+     */
     @DeleteMapping("{id}")
     public void supprimerWebService(@PathVariable int id) {
-//        Optional<WebService> optionalWebService = webServiceRepository.findById(id);
-//        if (optionalWebService.isPresent()) {
-//            webServiceRepository.deleteById(id);
-//        }
         webServiceRepository.deleteById(id);
     }
 }
