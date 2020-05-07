@@ -20,7 +20,7 @@ public class Habilitation implements Serializable {
 
     @NotNull
     @Column(nullable = false)
-            @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     String motDePasse;
 
     @ElementCollection(fetch = FetchType.EAGER)

@@ -18,8 +18,8 @@ public class Application implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		extractionDonnee.extraireApplication();
-		extractionDonnee.extraireSuivi();
-		extractionDonnee.extraireErreur();
+//		extractionDonnee.extraireApplication();
+//		extractionDonnee.extraireSuivi();
+//		extractionDonnee.extraireErreur();
 	}
 }
