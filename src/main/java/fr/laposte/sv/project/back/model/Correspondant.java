@@ -26,7 +26,7 @@ public class Correspondant implements Serializable {
     String email;
     String telephone;
     @ManyToMany(mappedBy = "correspondants")
-    @JsonManagedReference
+//    @JsonManagedReference
     Set<Application> applications;
 
 

@@ -2,7 +2,9 @@ package fr.laposte.sv.project.back.controller;
 
 import fr.laposte.sv.project.back.model.Correspondant;
 import fr.laposte.sv.project.back.repository.CorrespondantRepository;
+import fr.laposte.sv.project.back.service.CorrespondantService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
@@ -15,6 +17,9 @@ public class CorrespondantController {
 
     @Autowired
     private CorrespondantRepository correspondantRepository;
+
+    @Autowired
+    private CorrespondantService correspondantService;
 
     @GetMapping
         public Collection<Correspondant> findAll() {
@@ -48,6 +53,11 @@ public class CorrespondantController {
 //        } else {
 //            System.out.print("Pas de correspondant à supprimer");
         }
+        }
+        @PutMapping("/update")
+    public ResponseEntity<Correspondant> updateCorrespondant(@RequestBody(required = false) Correspondant correspondant) {
+        System.out.println(correspondant);
+        return correspondantService.updateCorrespondant(correspondant);
         }
     }
 

@@ -1,6 +1,7 @@
 package fr.laposte.sv.project.back.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -32,8 +33,8 @@ public class Application implements Serializable {
     @JoinTable(name = "application_correspondant",
             joinColumns = @JoinColumn(name = "application_id"),
             inverseJoinColumns = @JoinColumn(name = "correspondant_id"))
-    @JsonBackReference
-
+//    @JsonBackReference
+@JsonIgnore
     Set<Correspondant> correspondants;
 
 
