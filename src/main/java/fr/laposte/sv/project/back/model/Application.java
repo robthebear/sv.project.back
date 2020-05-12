@@ -26,13 +26,7 @@ public class Application implements Serializable {
     @OneToMany(mappedBy = "application", orphanRemoval = true)
     @JsonManagedReference
     Set<WebService> webService = new HashSet<>();
-    @ManyToMany(cascade = {
-            CascadeType.PERSIST,
-            CascadeType.MERGE
-    })
-    @JoinTable(name = "application_correspondant",
-            joinColumns = @JoinColumn(name = "application_id"),
-            inverseJoinColumns = @JoinColumn(name = "correspondant_id"))
+    @ManyToMany(mappedBy = "applications")
 //    @JsonBackReference
 @JsonIgnore
     Set<Correspondant> correspondants;

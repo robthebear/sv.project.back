@@ -8,5 +8,5 @@ import java.util.List;
 
 @Service
 public interface CorrespondantService {
-    ResponseEntity<Correspondant> updateCorrespondant(Correspondant correspondant);
+    ResponseEntity<Correspondant> updateCorrespondant(String id, Correspondant correspondant);
 }

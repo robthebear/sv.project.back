@@ -1,6 +1,7 @@
 package fr.laposte.sv.project.back.repository;
 
 import fr.laposte.sv.project.back.model.Application;
+import fr.laposte.sv.project.back.model.Correspondant;
 import fr.laposte.sv.project.back.model.WebService;
 import org.springframework.data.jpa.repository.JpaRepository;
 

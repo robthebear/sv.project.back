@@ -25,27 +25,30 @@
 # INSERT INTO sv_project.habilitation_role_list (habilitation_id, role_list) VALUES ('PPDL890', 'ROLE_UTILISATEUR');
 # INSERT INTO sv_project.habilitation_role_list (habilitation_id, role_list) VALUES ('PPQR933', 'ROLE_SUPERADMIN');
 #
-# INSERT INTO sv_project.application_correspondant(application_id, correspondant_id) VALUES ('a1b', 'PBGF123');
-# INSERT INTO sv_project.application_correspondant(application_id, correspondant_id) VALUES ('bp_', 'PBGF123');
-# INSERT INTO sv_project.application_correspondant(application_id, correspondant_id) VALUES ('cb_', 'PBGF123');
-# INSERT INTO sv_project.application_correspondant(application_id, correspondant_id) VALUES ('co_', 'PBGF123');
-# INSERT INTO sv_project.application_correspondant(application_id, correspondant_id) VALUES ('e6_', 'PBGF123');
-# INSERT INTO sv_project.application_correspondant(application_id, correspondant_id) VALUES ('ib3', 'PBGF123');
-# INSERT INTO sv_project.application_correspondant(application_id, correspondant_id) VALUES ('j2d', 'PBGF123');
-# INSERT INTO sv_project.application_correspondant(application_id, correspondant_id) VALUES ('j4c', 'PBGF123');
-# INSERT INTO sv_project.application_correspondant(application_id, correspondant_id) VALUES ('l5x', 'PBGF123');
-# INSERT INTO sv_project.application_correspondant(application_id, correspondant_id) VALUES ('l6_', 'PBGF123');
-# INSERT INTO sv_project.application_correspondant(application_id, correspondant_id) VALUES ('p4r', 'PBGF123');
-# INSERT INTO sv_project.application_correspondant(application_id, correspondant_id) VALUES ('a1b', 'PPDL890');
-# INSERT INTO sv_project.application_correspondant(application_id, correspondant_id) VALUES ('l5x', 'PPDL890');
-# INSERT INTO sv_project.application_correspondant(application_id, correspondant_id) VALUES ('p4r', 'PPDL890');
-# INSERT INTO sv_project.application_correspondant(application_id, correspondant_id) VALUES ('co_', 'PPDL890');
-# INSERT INTO sv_project.application_correspondant(application_id, correspondant_id) VALUES ('nta', 'PPDL890');
-# INSERT INTO sv_project.application_correspondant(application_id, correspondant_id) VALUES ('mh_', 'PPDL890');
-# INSERT INTO sv_project.application_correspondant(application_id, correspondant_id) VALUES ('mos', 'PPDL890');
-# INSERT INTO sv_project.application_correspondant(application_id, correspondant_id) VALUES ('lwb', 'PPDL890');
-# INSERT INTO sv_project.application_correspondant(application_id, correspondant_id) VALUES ('j2d', 'PPDL890');
-# INSERT INTO sv_project.application_correspondant(application_id, correspondant_id) VALUES ('lbb', 'PPDL890');
-# INSERT INTO sv_project.application_correspondant(application_id, correspondant_id) VALUES ('qv_', 'PPDL890');
+# INSERT INTO sv_project.correspondant_application(correspondant, application) VALUES ('PBGF123', 'a1b');
+# INSERT INTO sv_project.correspondant_application(correspondant, application) VALUES ('PBGF123', 'bp_');
+# INSERT INTO sv_project.correspondant_application(correspondant, application) VALUES ('PBGF123', 'cb_');
+# INSERT INTO sv_project.correspondant_application(correspondant, application) VALUES ('PBGF123', 'co_');
+# INSERT INTO sv_project.correspondant_application(correspondant, application) VALUES ('PBGF123', 'e6_');
+# INSERT INTO sv_project.correspondant_application(correspondant, application) VALUES ('PBGF123', 'ib3');
+# INSERT INTO sv_project.correspondant_application(correspondant, application) VALUES ('PBGF123', 'j2d');
+# INSERT INTO sv_project.correspondant_application(correspondant, application) VALUES ('PBGF123', 'j4c');
+# INSERT INTO sv_project.correspondant_application(correspondant, application) VALUES ('PBGF123', 'l5x');
+# INSERT INTO sv_project.correspondant_application(correspondant, application) VALUES ('PBGF123', 'l6_');
+# INSERT INTO sv_project.correspondant_application(correspondant, application) VALUES ('PBGF123', 'p4r');
+# INSERT INTO sv_project.correspondant_application(correspondant, application) VALUES ('PPDL890', 'a1b');
+# INSERT INTO sv_project.correspondant_application(correspondant, application) VALUES ('PPDL890', 'l5x');
+# INSERT INTO sv_project.correspondant_application(correspondant, application) VALUES ('PPDL890', 'p4r');
+# INSERT INTO sv_project.correspondant_application(correspondant, application) VALUES ('PPDL890', 'co_');
+# INSERT INTO sv_project.correspondant_application(correspondant, application) VALUES ('PPDL890', 'nta');
+# INSERT INTO sv_project.correspondant_application(correspondant, application) VALUES ('PPDL890', 'mh_');
+# INSERT INTO sv_project.correspondant_application(correspondant, application) VALUES ('PPDL890', 'mos');
+# INSERT INTO sv_project.correspondant_application(correspondant, application) VALUES ('PPDL890', 'lwb');
+# INSERT INTO sv_project.correspondant_application(correspondant, application) VALUES ('PPDL890', 'j2d');
+# INSERT INTO sv_project.correspondant_application(correspondant, application) VALUES ('PPDL890', 'lbb');
+# INSERT INTO sv_project.correspondant_application(correspondant, application) VALUES ('PPDL890', 'qv_');
 #
 #
+#
+# INSERT INTO sv_project.correspondant_application(correspondant, application) VALUES ('PPDL890', 'j2b');
+# INSERT INTO sv_project.correspondant_application(correspondant, application) VALUES ('PBGF123', 'j2b');

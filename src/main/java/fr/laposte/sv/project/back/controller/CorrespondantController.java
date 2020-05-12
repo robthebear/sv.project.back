@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Collection;
 import java.util.Optional;
 
@@ -54,10 +55,16 @@ public class CorrespondantController {
 //            System.out.print("Pas de correspondant à supprimer");
         }
         }
-        @PutMapping("/update")
-    public ResponseEntity<Correspondant> updateCorrespondant(@RequestBody(required = false) Correspondant correspondant) {
-        System.out.println(correspondant);
-        return correspondantService.updateCorrespondant(correspondant);
+//        @PutMapping("/update")
+//    public ResponseEntity<Correspondant> updateCorrespondant(@RequestBody(required = false) Correspondant correspondant) {
+//        System.out.println(correspondant);
+//        return correspondantService.updateCorrespondant(correspondant);
+//        }
+
+        @PutMapping("/update/{id}")
+    public ResponseEntity<Correspondant> updateCorrespondant (@PathVariable String id, @Valid  @RequestBody Correspondant correspondant) {
+
+        return correspondantService.updateCorrespondant(id, correspondant);
         }
     }
 

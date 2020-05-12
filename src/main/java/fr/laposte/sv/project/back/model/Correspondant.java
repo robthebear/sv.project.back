@@ -25,7 +25,14 @@ public class Correspondant implements Serializable {
     String fonction;
     String email;
     String telephone;
-    @ManyToMany(mappedBy = "correspondants")
+    @ManyToMany(cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })
+    @JoinTable(name = "correspondant_application",
+            joinColumns = @JoinColumn(name = "correspondant"),
+            inverseJoinColumns = @JoinColumn(name = "application"))
+
 //    @JsonManagedReference
     Set<Application> applications;
 
