@@ -3,12 +3,10 @@ package fr.laposte.sv.project.back.controller;
 
 import fr.laposte.sv.project.back.model.Application;
 import fr.laposte.sv.project.back.model.WebService;
-import fr.laposte.sv.project.back.repository.ApplicationRepository;
 import fr.laposte.sv.project.back.repository.WebServiceRepository;
 import fr.laposte.sv.project.back.service.WebServiceService;
-import org.springframework.beans.factory.annotation.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 
 import java.util.Collection;
 import java.util.Optional;
@@ -28,6 +26,7 @@ public class WebServiceController {
 
     /**
      * Controller qui affiche tous les webservices
+     *
      * @return la liste de tous les webservices
      */
     @GetMapping
@@ -37,6 +36,7 @@ public class WebServiceController {
 
     /**
      * Controller qui recupere un objet webservice avec son nom
+     *
      * @param webService
      * @return
      */
@@ -47,6 +47,7 @@ public class WebServiceController {
 
     /**
      * Controller qui recupere un objet webservice avec un code application
+     *
      * @param codeApplication
      * @return le webservice correspondant
      */
@@ -57,16 +58,18 @@ public class WebServiceController {
 
     /**
      * Controller qui recupere un objet Webservice grace à son id
+     *
      * @param id
      * @return le Webservice correspondant à cet id
      */
     @GetMapping("{id}")
-    public Optional<WebService> findbyId(@PathVariable int id){
+    public Optional<WebService> findbyId(@PathVariable int id) {
         return webServiceRepository.findById(id);
     }
 
     /**
      * Controller qui permet de supprimer un objet webservice dans la base de donnée grace a son id
+     *
      * @param id
      */
     @DeleteMapping("{id}")

@@ -119,14 +119,13 @@ public class ExtractionDonnee {
                             LocalDate date1 = LocalDate.parse(date[0], formatter);
                             LocalDate dateCreation = webServiceService.findDateCreation(batchWebService.getWebService());
 
-                            if (dateCreation.isBefore(date1)){
+                            if (dateCreation.isBefore(date1)) {
 //                                System.out.println(dateCreation);
 //                                System.out.println(date1);
 //                                System.out.println("webservice ok");
 
 
-                            }
-                            else if (date1.isBefore(dateCreation)) {
+                            } else if (date1.isBefore(dateCreation)) {
 
                                 System.out.println(dateCreation);
                                 System.out.println(date1);
@@ -201,14 +200,13 @@ public class ExtractionDonnee {
                         LocalDate date1 = LocalDate.parse(date[0], formatter);
                         LocalDate dateCreation = webServiceService.findDateCreation(batchWebService.getWebService());
 
-                        if (dateCreation.isBefore(date1)){
+                        if (dateCreation.isBefore(date1)) {
 //                            System.out.println(dateCreation);
 //                            System.out.println(date1);
 //                            System.out.println("webservice ok");
 
 
-                        }
-                        else if (date1.isBefore(dateCreation)) {
+                        } else if (date1.isBefore(dateCreation)) {
 
                             System.out.println(dateCreation);
                             System.out.println(date1);

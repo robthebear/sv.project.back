@@ -6,11 +6,8 @@ import fr.laposte.sv.project.back.repository.SvSuiviRepository;
 import fr.laposte.sv.project.back.repository.WebServiceRepository;
 import fr.laposte.sv.project.back.service.SvSuiviService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.websocket.server.PathParam;
 import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Set;
@@ -35,15 +32,16 @@ public class SvSuiviController {
         return svSuiviRepository.findAll();
     }
 
-@GetMapping("/parWebService/{webService}")
+    @GetMapping("/parWebService/{webService}")
     public Set<SvSuivi> findSvSuiviByWebService(@PathVariable WebService webService) {
         return svSuiviService.findSvSuiviByWebService(webService);
-}
-@GetMapping("/parDate/{date}")
+    }
+
+    @GetMapping("/parDate/{date}")
     public Set<SvSuivi> findByDate(@PathVariable String date) {
-LocalDate date1 = LocalDate.parse(date);
+        LocalDate date1 = LocalDate.parse(date);
         return svSuiviService.findByDate(date1);
-}
+    }
 
 //    @GetMapping("/parDate/")
 //    public ResponseEntity<?> svSuiviParDate(@RequestBody SvSuivi svSuivis) {
@@ -59,7 +57,7 @@ LocalDate date1 = LocalDate.parse(date);
 //    }
 
     @GetMapping("/parDate/{date1}/{date2}/{webservice}")
-    public Set<SvSuivi> svSuiviParDate(@PathVariable("date1") String dateDebut,@PathVariable("date2") String dateFin,@PathVariable("webservice") WebService webService) {
+    public Set<SvSuivi> svSuiviParDate(@PathVariable("date1") String dateDebut, @PathVariable("date2") String dateFin, @PathVariable("webservice") WebService webService) {
         LocalDate dateD = LocalDate.parse(dateDebut);
         LocalDate dateF = LocalDate.parse(dateFin);
 

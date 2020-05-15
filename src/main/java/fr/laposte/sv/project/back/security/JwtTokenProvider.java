@@ -2,7 +2,6 @@ package fr.laposte.sv.project.back.security;
 
 import fr.laposte.sv.project.back.exception.InvalidJWTException;
 import fr.laposte.sv.project.back.model.Role;
-import fr.laposte.sv.project.back.service.HabilitationService;
 import fr.laposte.sv.project.back.service.impl.HabilitationServiceImpl;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
@@ -71,8 +70,10 @@ public class JwtTokenProvider {
                 .signWith(SignatureAlgorithm.HS256, secretKey)
                 .compact();
     }
+
     /**
      * Method that returns the user authentication based on one JWT.
+     *
      * @param token the token to use for authentication.
      * @return the authentication object if username is found.
      */
@@ -81,17 +82,21 @@ public class JwtTokenProvider {
         return new UsernamePasswordAuthenticationToken(userDetails, "", userDetails.getAuthorities());
 
     }
+
     /**
      * Method that gets the username from the JWT.
+     *
      * @param token the token to analyse.
      * @return the user username as String.
      */
     public String getUsername(String token) {
         return Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token).getBody().getSubject();
     }
+
     /**
      * Method that resolve a JWT from an HTTP Request.
      * The header should contains an Authorization field where JWT should be added after "Bearer ".
+     *
      * @param req the request to check.
      * @return the JWT from the HTTP Header.
      */
@@ -106,6 +111,7 @@ public class JwtTokenProvider {
     /**
      * Method that checks that a JWT is valid.
      * The signature should be correct and the exp time should be after "now"
+     *
      * @param token the token to validate
      * @return True if the token is valid, throws InvalidJWTException otherwise.
      * @throws InvalidJWTException

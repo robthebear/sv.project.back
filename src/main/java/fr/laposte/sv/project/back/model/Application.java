@@ -1,12 +1,14 @@
 package fr.laposte.sv.project.back.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
@@ -28,7 +30,7 @@ public class Application implements Serializable {
     Set<WebService> webService = new HashSet<>();
     @ManyToMany(mappedBy = "applications")
 //    @JsonBackReference
-@JsonIgnore
+    @JsonIgnore
     Set<Correspondant> correspondants;
 
 

@@ -1,7 +1,10 @@
 package fr.laposte.sv.project.back.dto;
 
 import fr.laposte.sv.project.back.model.Role;
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.experimental.FieldDefaults;
 
 import javax.validation.constraints.NotNull;

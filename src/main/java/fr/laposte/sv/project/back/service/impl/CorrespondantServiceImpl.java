@@ -62,23 +62,17 @@ public class CorrespondantServiceImpl implements CorrespondantService {
     @Override
     public ResponseEntity<Correspondant> updateCorrespondant(String id, Correspondant correspondant) {
         Optional<Correspondant> correspondantEnBase = correspondantRepository.findById(id);
-    Set<Application> applicationsAModifier = correspondant.getApplications();
+        Set<Application> applicationsAModifier = correspondant.getApplications();
         Optional<Application> ajoutappli;
         Set<Application> appliAModifier = new HashSet<>();
-//        Correspondant majCorrespondant = new Correspondant();
 
         if (correspondantEnBase.isPresent()) {
             for (Application appli : applicationsAModifier) {
                 ajoutappli = applicationRepository.findById(appli.getId());
                 appliAModifier.add(ajoutappli.get());
-            } correspondantEnBase.get().setApplications(appliAModifier);
+            }
+            correspondantEnBase.get().setApplications(appliAModifier);
             System.out.println(correspondantEnBase.get());
-//            majCorrespondant.setId(correspondantEnBase.get().getId());
-//            majCorrespondant.setNom(correspondantEnBase.get().getNom());
-//            majCorrespondant.setPrenom(correspondantEnBase.get().getPrenom());
-//            majCorrespondant.setTelephone(correspondantEnBase.get().getTelephone());
-//            majCorrespondant.setEmail(correspondantEnBase.get().getEmail());
-//            majCorrespondant.setApplications(appliAModifier);
 
 
             return new ResponseEntity<>(correspondantRepository.save(correspondantEnBase.get()), HttpStatus.CREATED);

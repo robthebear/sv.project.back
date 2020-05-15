@@ -8,7 +8,9 @@ import fr.laposte.sv.project.back.service.SvSuiviService;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.util.*;
+import java.util.HashSet;
+import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class SvSuiviServiceImpl implements SvSuiviService {
@@ -55,7 +57,8 @@ public class SvSuiviServiceImpl implements SvSuiviService {
             } else if (svSuivi.getDate().isAfter(dateDebut) && svSuivi.getDate().isBefore(dateFin)) {
                 suivis.add(svSuivi);
             }
-        } return suivis;
+        }
+        return suivis;
     }
 
 //    @Override

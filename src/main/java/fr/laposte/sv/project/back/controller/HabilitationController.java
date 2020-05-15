@@ -24,10 +24,9 @@ public class HabilitationController {
     private HabilitationService habilitationService;
 
 
-
-
     /**
      * Methode pour enregistrer un nouvel utilisateur dans la BD.
+     *
      * @param user utiliateur.
      * @return un JWT si la connection est OK sinon une mauvaise réponse
      */
@@ -49,11 +48,13 @@ public class HabilitationController {
             return ResponseEntity.badRequest().build();
         }
     }
+
     @GetMapping
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public List<HabilitationDto> getAllUsers() {
         return habilitationService.findAllUsers().stream().map(habilitation -> new HabilitationDto(habilitation.getId())).collect(Collectors.toList());
     }
+
     @GetMapping("/{id}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<HabilitationDto> getOneUser(@PathVariable String id) {
