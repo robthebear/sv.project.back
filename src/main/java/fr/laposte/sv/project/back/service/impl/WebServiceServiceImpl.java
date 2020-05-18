@@ -58,10 +58,9 @@ public class WebServiceServiceImpl implements WebServiceService {
     }
 
 
-
     @Override
     public WebService modifierWebService(WebService webService, int id) {
-            webService.setId(id);
-            return webServiceRepository.saveAndFlush(webService);
+        webService.setId(id);
+        return webServiceRepository.saveAndFlush(webService);
     }
 }

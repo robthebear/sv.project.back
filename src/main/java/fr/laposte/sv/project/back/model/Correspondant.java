@@ -1,17 +1,14 @@
 package fr.laposte.sv.project.back.model;
 
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
 import java.util.Set;
 
-@FieldDefaults (level = AccessLevel.PRIVATE)
+@FieldDefaults(level = AccessLevel.PRIVATE)
 @Setter
 @Getter
 @AllArgsConstructor
@@ -25,10 +22,16 @@ public class Correspondant implements Serializable {
     String fonction;
     String email;
     String telephone;
-    @ManyToMany(mappedBy = "correspondants")
-//    @JsonManagedReference
-    Set<Application> applications;
+    @ManyToMany(cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })
+    @JoinTable(name = "correspondant_application",
+            joinColumns = @JoinColumn(name = "correspondant"),
+            inverseJoinColumns = @JoinColumn(name = "application"))
 
+//    @JsonManagedReference
+            Set<Application> applications;
 
 
 }

@@ -1,11 +1,9 @@
 package fr.laposte.sv.project.back.security;
 
-import jdk.nashorn.internal.ir.LexicalContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.BeanIds;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -14,12 +12,6 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.CorsConfigurationSource;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-
-import java.util.Arrays;
-import java.util.Collections;
 
 /**
  * Global security configuration for our HTTP Rest API.
@@ -39,6 +31,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     /**
      * Method that configures HTTP security.
+     *
      * @param http the HttpSecurity object to configure.
      * @throws Exception
      */
@@ -65,6 +58,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     /**
      * Method that configures web security. Useful here for development purposes to allow h2 console access.
+     *
      * @param web the WebSecurity object to configure.
      * @throws Exception
      */
@@ -76,6 +70,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     /**
      * Generic configuration for CORS. Useful here for development purposes as front is developed with Angular.
+     *
      * @return the CorsConfigurationSource object.
      */
 //    @Bean
@@ -96,7 +91,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
 
 
 }

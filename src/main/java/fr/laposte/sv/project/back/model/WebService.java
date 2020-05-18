@@ -1,18 +1,17 @@
 package fr.laposte.sv.project.back.model;
 
-import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @FieldDefaults(level = AccessLevel.PRIVATE)
@@ -32,7 +31,7 @@ public class WebService implements Serializable {
 
     @ManyToOne
     @JsonBackReference
-    @JoinColumn( name = "application", referencedColumnName = "id")
+    @JoinColumn(name = "application", referencedColumnName = "id")
     Application application;
 
     @OneToMany(mappedBy = "webService", orphanRemoval = true)

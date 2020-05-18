@@ -49,12 +49,13 @@ public class HabilitationServiceImpl implements HabilitationService, UserDetails
     public Habilitation signup(Habilitation user) throws ExistingUserNameException {
         if (!habilitationRepository.existsById(user.getId())) {
             Habilitation userToSave = new Habilitation(user.getId(), passwordEncoder.encode(user.getMotDePasse()), user.getRoleList());
-           return habilitationRepository.save(userToSave);
+            return habilitationRepository.save(userToSave);
 //            return jwtTokenProvider.createToken(user.getId(), user.getRoleList());
         } else {
             throw new ExistingUserNameException();
         }
     }
+
     @Override
     public List<Habilitation> findAllUsers() {
         return habilitationRepository.findAll();

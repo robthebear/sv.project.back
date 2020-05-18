@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Collection;
 import java.util.Optional;
 
@@ -22,7 +23,7 @@ public class CorrespondantController {
     private CorrespondantService correspondantService;
 
     @GetMapping
-        public Collection<Correspondant> findAll() {
+    public Collection<Correspondant> findAll() {
 
         return correspondantRepository.findAll();
     }
@@ -36,28 +37,37 @@ public class CorrespondantController {
     public Optional<Correspondant> findByNom(@PathVariable String nom) {
         return correspondantRepository.findByNom(nom);
     }
+
     @GetMapping("/{fonction}")
     public Optional<Correspondant> findByFonction(@PathVariable String fonction) {
         return correspondantRepository.findByFonction(fonction);
     }
+
     @GetMapping("/{email}")
     public Optional<Correspondant> findByEmail(@PathVariable String email) {
         return correspondantRepository.findByEmail(email);
     }
+
     @DeleteMapping("/{id}")
     public void delCorrespondant(@PathVariable String id) {
         Optional<Correspondant> optionalCorrespondant = correspondantRepository.findById(id);
-      if (optionalCorrespondant.isPresent()) {
+        if (optionalCorrespondant.isPresent()) {
             correspondantRepository.deleteById(id);
             System.out.print("Correspondant supprimé");
 //        } else {
 //            System.out.print("Pas de correspondant à supprimer");
         }
-        }
-        @PutMapping("/update")
-    public ResponseEntity<Correspondant> updateCorrespondant(@RequestBody(required = false) Correspondant correspondant) {
-        System.out.println(correspondant);
-        return correspondantService.updateCorrespondant(correspondant);
-        }
     }
+//        @PutMapping("/update")
+//    public ResponseEntity<Correspondant> updateCorrespondant(@RequestBody(required = false) Correspondant correspondant) {
+//        System.out.println(correspondant);
+//        return correspondantService.updateCorrespondant(correspondant);
+//        }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<Correspondant> updateCorrespondant(@PathVariable String id, @Valid @RequestBody Correspondant correspondant) {
+
+        return correspondantService.updateCorrespondant(id, correspondant);
+    }
+}
 

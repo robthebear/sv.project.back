@@ -41,12 +41,12 @@ public class SvErreurServiceImpl implements SvErreurService {
         for (SvErreur svErreur : svErreurs) {
             if (svErreur.getDate().isEqual(dateDebut) || svErreur.getDate().isEqual(dateFin)) {
                 erreurs.add(svErreur);
-            } else if (svErreur.getDate().isAfter(dateDebut) && svErreur.getDate().isBefore(dateFin)){
+            } else if (svErreur.getDate().isAfter(dateDebut) && svErreur.getDate().isBefore(dateFin)) {
                 erreurs.add(svErreur);
             }
-        } return erreurs;
+        }
+        return erreurs;
     }
-
 
 
 }

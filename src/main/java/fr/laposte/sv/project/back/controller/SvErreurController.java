@@ -1,17 +1,14 @@
 package fr.laposte.sv.project.back.controller;
 
-import fr.laposte.sv.project.back.batch.ExtractionDonnee;
 import fr.laposte.sv.project.back.model.SvErreur;
 import fr.laposte.sv.project.back.model.WebService;
 import fr.laposte.sv.project.back.repository.SvErreurRepository;
-import fr.laposte.sv.project.back.repository.WebServiceRepository;
 import fr.laposte.sv.project.back.service.SvErreurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.Collection;
-import java.util.Optional;
 import java.util.Set;
 
 
@@ -26,11 +23,6 @@ public class SvErreurController {
 
     @Autowired
     private SvErreurService svErreurService;
-
-
-
-
-
 
 
     @GetMapping
