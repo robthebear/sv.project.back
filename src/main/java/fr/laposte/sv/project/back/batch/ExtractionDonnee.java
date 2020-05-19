@@ -6,6 +6,8 @@ import fr.laposte.sv.project.back.model.SvErreur;
 import fr.laposte.sv.project.back.model.SvSuivi;
 import fr.laposte.sv.project.back.model.WebService;
 import fr.laposte.sv.project.back.repository.ApplicationRepository;
+import fr.laposte.sv.project.back.repository.SvErreurRepository;
+import fr.laposte.sv.project.back.repository.SvSuiviRepository;
 import fr.laposte.sv.project.back.repository.WebServiceRepository;
 import fr.laposte.sv.project.back.service.SvErreurService;
 import fr.laposte.sv.project.back.service.SvSuiviService;
@@ -37,6 +39,12 @@ public class ExtractionDonnee {
     @Autowired
     SvSuiviService svSuiviService;
 
+    @Autowired
+    SvErreurRepository svErreurRepository;
+
+    @Autowired
+    SvSuiviRepository svSuiviRepository;
+
 
     public void extraireApplication() {
         FileReader fr = null;
@@ -60,6 +68,7 @@ public class ExtractionDonnee {
                         applicationRepository.saveAndFlush(batchApplication);
                     } else {
                         applicationRepository.saveAndFlush(batchApplication);
+
                     }
 
 
@@ -240,7 +249,7 @@ public class ExtractionDonnee {
                 svErreurService.saveSvErreur(batchSvErreur);
 
             }
-        } catch (IOException e) {
+        } catch (IOException | ParseException e) {
             e.printStackTrace();
         }
     }

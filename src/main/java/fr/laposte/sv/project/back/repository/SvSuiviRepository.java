@@ -12,11 +12,5 @@ public interface SvSuiviRepository extends JpaRepository<SvSuivi, Integer> {
 
     Set<SvSuivi> findSvSuiviByWebService(WebService webService);
 
-    Set<SvSuivi> findByDate(LocalDate date);
 
-
-//    Set<SvSuivi> svSuiviParDate();
-
-
-//    SvSuivi findAll(LocalDate date);
 }

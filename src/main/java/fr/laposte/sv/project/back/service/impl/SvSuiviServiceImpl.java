@@ -1,5 +1,8 @@
 package fr.laposte.sv.project.back.service.impl;
 
+import fr.laposte.sv.project.back.dto.SvErreurDto;
+import fr.laposte.sv.project.back.dto.SvSuiviDto;
+import fr.laposte.sv.project.back.model.SvErreur;
 import fr.laposte.sv.project.back.model.SvSuivi;
 import fr.laposte.sv.project.back.model.WebService;
 import fr.laposte.sv.project.back.repository.SvSuiviRepository;
@@ -7,7 +10,14 @@ import fr.laposte.sv.project.back.repository.WebServiceRepository;
 import fr.laposte.sv.project.back.service.SvSuiviService;
 import org.springframework.stereotype.Service;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
@@ -39,19 +49,24 @@ public class SvSuiviServiceImpl implements SvSuiviService {
         return svSuivi;
     }
 
-    @Override
-    public Set<SvSuivi> findByDate(LocalDate date) {
-        Set<SvSuivi> svSuivi = svSuiviRepository.findByDate(date);
-        return svSuivi;
-    }
+//    @Override
+//    public Set<SvSuivi> findByDate(LocalDate date) {
+//        Set<SvSuivi> svSuivi = svSuiviRepository.findByDate(date);
+//        return svSuivi;
+//    }
 
 
     @Override
     public Set<SvSuivi> svSuiviParDate(WebService webService, LocalDate dateDebut, LocalDate dateFin) {
         Set<SvSuivi> svSuivis = svSuiviRepository.findSvSuiviByWebService(webService);
-        Set<SvSuivi> suivis = new HashSet<SvSuivi>();
+        Set<SvSuivi> suivis = new HashSet<>();
+//        DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss:SSS");
+
 
         for (SvSuivi svSuivi : svSuivis) {
+//            String dateR[] = format.format(svSuivi.getDateDebut()).split(" ");
+//            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+//            LocalDate date = LocalDate.parse(dateR[0], formatter);
             if (svSuivi.getDate().isEqual(dateDebut) || svSuivi.getDate().isEqual(dateFin)) {
                 suivis.add(svSuivi);
             } else if (svSuivi.getDate().isAfter(dateDebut) && svSuivi.getDate().isBefore(dateFin)) {
@@ -60,6 +75,33 @@ public class SvSuiviServiceImpl implements SvSuiviService {
         }
         return suivis;
     }
+
+//    public SvSuiviDto svSuiviEnLecture(SvSuivi svSuivi){
+//
+//        DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss:SSS");
+//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+//        DateTimeFormatter formatTime = DateTimeFormatter.ofPattern("HH:mm:ss:SSS");
+//        Date db = svSuivi.getDateDebut();
+//        Date df = svSuivi.getDateFin();
+//
+//        String dateR[] = format.format(db).split(" ");
+//        String heure[] = format.format(df).split(" ");
+//        String d[] = dateR[1].split(":");
+//        String f[] = heure[1].split(":");
+//        int debut = Integer.parseInt(d[2]);
+//        int fin = Integer.parseInt(f[2]);
+//        SvSuiviDto svSuiviDto = new SvSuiviDto();
+//
+//        svSuiviDto.setId(svSuivi.getId());
+//        svSuiviDto.setDate(LocalDate.parse(dateR[0], formatter));
+//        svSuiviDto.setHeureDebut(LocalTime.parse(dateR[1], formatTime));
+//        svSuiviDto.setDuree(fin - debut);
+//        svSuiviDto.setStatutHttp(svSuivi.getStatutHttp());
+//        svSuiviDto.setStatutRetour(svSuivi.getStatutRetour());
+//        svSuiviDto.setWebService(svSuivi.getWebService());
+//
+//        return svSuiviDto;
+//    }
 
 //    @Override
 //    public Set<SvSuivi> svSuiviParDate(WebService webService, LocalDate dateDebut, LocalDate dateFin) {

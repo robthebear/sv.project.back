@@ -1,9 +1,11 @@
 package fr.laposte.sv.project.back.service;
 
+import fr.laposte.sv.project.back.dto.SvSuiviDto;
 import fr.laposte.sv.project.back.model.SvSuivi;
 import fr.laposte.sv.project.back.model.WebService;
 import org.springframework.stereotype.Service;
 
+import java.text.ParseException;
 import java.time.LocalDate;
 import java.util.Set;
 
@@ -14,11 +16,10 @@ public interface SvSuiviService {
 
     Set<SvSuivi> findSvSuiviByWebService(WebService webService);
 
-    Set<SvSuivi> findByDate(LocalDate date);
+
 
     Set<SvSuivi> svSuiviParDate(WebService webService, LocalDate dateDebut, LocalDate dateFin);
 
-//    Set<SvSuivi> svSuiviParDate(LocalDate date);
 
 
 }

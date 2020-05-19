@@ -1,5 +1,6 @@
 package fr.laposte.sv.project.back.controller;
 
+import fr.laposte.sv.project.back.dto.SvSuiviDto;
 import fr.laposte.sv.project.back.model.SvSuivi;
 import fr.laposte.sv.project.back.model.WebService;
 import fr.laposte.sv.project.back.repository.SvSuiviRepository;
@@ -8,6 +9,7 @@ import fr.laposte.sv.project.back.service.SvSuiviService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
 import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Set;
@@ -37,24 +39,7 @@ public class SvSuiviController {
         return svSuiviService.findSvSuiviByWebService(webService);
     }
 
-    @GetMapping("/parDate/{date}")
-    public Set<SvSuivi> findByDate(@PathVariable String date) {
-        LocalDate date1 = LocalDate.parse(date);
-        return svSuiviService.findByDate(date1);
-    }
 
-//    @GetMapping("/parDate/")
-//    public ResponseEntity<?> svSuiviParDate(@RequestBody SvSuivi svSuivis) {
-////        LocalDate dateD = LocalDate.parse(dateDebut);
-////        LocalDate dateF = LocalDate.parse(dateFin);
-//        try {
-//            return ResponseEntity.ok(svSuiviService.svSuiviParDate(svSuivis.getWebService(), svSuivis.getDate(), svSuivis.getDate()));
-//
-//        } catch (Exception e) {
-//            return ResponseEntity.notFound().build();
-//        }
-//
-//    }
 
     @GetMapping("/parDate/{date1}/{date2}/{webservice}")
     public Set<SvSuivi> svSuiviParDate(@PathVariable("date1") String dateDebut, @PathVariable("date2") String dateFin, @PathVariable("webservice") WebService webService) {
@@ -65,13 +50,5 @@ public class SvSuiviController {
     }
 
 
-//            @PostMapping
-//    public SvSuivi ajoutSvSuivi (@RequestBody SvSuivi svSuivi) {
-//                final Optional<WebService> web = webServiceRepository.findByWebService(svSuivi.getWebService().getWebService());
-//                if (web.isPresent()){
-//                    svSuivi.setWebService(web.get());
-//                }
-//                System.out.print(svSuivi);
-//                return svSuiviService.saveSvSuivi(svSuivi);
-//            }
+
 }
