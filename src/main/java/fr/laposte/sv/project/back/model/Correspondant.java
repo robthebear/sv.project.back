@@ -1,6 +1,7 @@
 package fr.laposte.sv.project.back.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -30,8 +31,12 @@ public class Correspondant implements Serializable {
             joinColumns = @JoinColumn(name = "correspondant"),
             inverseJoinColumns = @JoinColumn(name = "application"))
 
-//    @JsonManagedReference
             Set<Application> applications;
+    @OneToOne(cascade = CascadeType.ALL)
+            @JoinColumn(name = "id", referencedColumnName = "id")
+    @JsonIgnore
+
+    Habilitation habilitation;
 
 
 }

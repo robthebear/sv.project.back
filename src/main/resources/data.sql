@@ -4,17 +4,19 @@
 # INSERT INTO sv_project.sv_statistique (date, pourcentage, temps_moyen, web_service_id) VALUES ('2020-02-28', 18, 3, 1);
 # INSERT INTO sv_project.sv_statistique (date, pourcentage, temps_moyen, web_service_id) VALUES ('2020-03-10', 25, 2, 2);
 #
-# INSERT INTO sv_project.correspondant (id, nom, prenom, fonction, telephone, email) values ('PBGF123', 'Roussely', 'Robert', 'Développeur', '0642749481', 'rousselyrobert@wanadoo.fr');
-# INSERT INTO sv_project.correspondant (id, nom, prenom, fonction, telephone, email) values ('PPDL890', 'Delcroix', 'Jean-Luc', 'Directeur', '0000000000', 'jean-luc.delcroix@laposte.fr');
-# INSERT INTO sv_project.correspondant (id, nom, prenom, fonction, telephone, email) values ('PPQR933', 'Delannoy', 'Laurence', 'Directeur', '0000000000', 'laurence.delannoy@laposte.fr');
-#
 # INSERT INTO sv_project.habilitation (id, mot_de_passe) VALUES ('PBGF123', '$2a$10$13rYqjS63wtNSpyOUEXjC.9DcUoyA6Vlq52cqQLb.lA1Y3IfVzQVS');
 # INSERT INTO sv_project.habilitation (id, mot_de_passe) VALUES ('PPDL890', '$2a$10$eIWIuLCJxQCTJok5d6Xmpe1uNNK01Wjz7h38clBnu0Myuny7j1/eG');
 # INSERT INTO sv_project.habilitation (id, mot_de_passe) VALUES ('PPQR933', '$2a$10$KXzErhkFT5Xcr5VfHwpC8.nPbMzL7va9EkEbIN4HT2QXFEyMI6abq');
 #
-# # INSERT INTO sv_project.habilitation (id, mot_de_passe) VALUES ('PBGF123', '123456789');
-# # INSERT INTO sv_project.habilitation (id, mot_de_passe) VALUES ('PPDL890', 'james');
-# # INSERT INTO sv_project.habilitation (id, mot_de_passe) VALUES ('PPQR933', 'prstres');
+# INSERT INTO sv_project.correspondant (id, nom, prenom, fonction, telephone, email) values ('PBGF123', 'Roussely', 'Robert', 'Développeur', '0642749481', 'rousselyrobert@wanadoo.fr');
+# INSERT INTO sv_project.correspondant (id, nom, prenom, fonction, telephone, email) values ('PPDL890', 'Delcroix', 'Jean-Luc', 'Directeur', '0000000000', 'jean-luc.delcroix@laposte.fr');
+# INSERT INTO sv_project.correspondant (id, nom, prenom, fonction, telephone, email) values ('PPQR933', 'Delannoy', 'Laurence', 'Directeur', '0000000000', 'laurence.delannoy@laposte.fr');
+#
+#
+#
+# INSERT INTO sv_project.habilitation (id, mot_de_passe) VALUES ('PBGF123', '123456789');
+# INSERT INTO sv_project.habilitation (id, mot_de_passe) VALUES ('PPDL890', 'james');
+# INSERT INTO sv_project.habilitation (id, mot_de_passe) VALUES ('PPQR933', 'prstres');
 #
 #
 #

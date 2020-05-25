@@ -29,7 +29,6 @@ public class Application implements Serializable {
     @JsonManagedReference
     Set<WebService> webService = new HashSet<>();
     @ManyToMany(mappedBy = "applications")
-//    @JsonBackReference
     @JsonIgnore
     Set<Correspondant> correspondants;
 

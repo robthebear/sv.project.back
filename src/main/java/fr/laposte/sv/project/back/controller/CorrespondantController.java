@@ -1,6 +1,7 @@
 package fr.laposte.sv.project.back.controller;
 
 import fr.laposte.sv.project.back.model.Correspondant;
+import fr.laposte.sv.project.back.model.Role;
 import fr.laposte.sv.project.back.repository.CorrespondantRepository;
 import fr.laposte.sv.project.back.service.CorrespondantService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +31,7 @@ public class CorrespondantController {
 
     @GetMapping("/id/{id}")
     public Optional<Correspondant> findById(@PathVariable String id) {
-        return correspondantRepository.findById(id);
+        return correspondantRepository.findById(id.toUpperCase());
     }
 
     @GetMapping("/{nom}")
@@ -50,9 +51,9 @@ public class CorrespondantController {
 
     @DeleteMapping("/{id}")
     public void delCorrespondant(@PathVariable String id) {
-        Optional<Correspondant> optionalCorrespondant = correspondantRepository.findById(id);
+        Optional<Correspondant> optionalCorrespondant = correspondantRepository.findById(id.toUpperCase());
         if (optionalCorrespondant.isPresent()) {
-            correspondantRepository.deleteById(id);
+            correspondantRepository.deleteById(id.toUpperCase());
             System.out.print("Correspondant supprimé");
 //        } else {
 //            System.out.print("Pas de correspondant à supprimer");
@@ -67,7 +68,7 @@ public class CorrespondantController {
     @PutMapping("/update/{id}")
     public ResponseEntity<Correspondant> updateCorrespondant(@PathVariable String id, @Valid @RequestBody Correspondant correspondant) {
 
-        return correspondantService.updateCorrespondant(id, correspondant);
+        return correspondantService.updateCorrespondant(id.toUpperCase(), correspondant);
     }
 }
 

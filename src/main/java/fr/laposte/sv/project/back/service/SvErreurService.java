@@ -1,6 +1,5 @@
 package fr.laposte.sv.project.back.service;
 
-import fr.laposte.sv.project.back.dto.SvErreurDto;
 import fr.laposte.sv.project.back.model.SvErreur;
 import fr.laposte.sv.project.back.model.WebService;
 import org.springframework.stereotype.Service;

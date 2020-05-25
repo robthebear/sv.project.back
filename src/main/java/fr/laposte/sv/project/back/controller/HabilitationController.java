@@ -5,6 +5,7 @@ import fr.laposte.sv.project.back.dto.JsonWebtoken;
 import fr.laposte.sv.project.back.exception.ExistingUserNameException;
 import fr.laposte.sv.project.back.exception.InvalidCredentialsException;
 import fr.laposte.sv.project.back.model.Habilitation;
+import fr.laposte.sv.project.back.repository.HabilitationRepository;
 import fr.laposte.sv.project.back.service.HabilitationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +24,9 @@ public class HabilitationController {
     @Autowired
     private HabilitationService habilitationService;
 
+    @Autowired
+    private HabilitationRepository habilitationRepository;
+
 
     /**
      * Methode pour enregistrer un nouvel utilisateur dans la BD.
@@ -40,7 +44,7 @@ public class HabilitationController {
     }
 
     @PostMapping("/sign-in")
-    public ResponseEntity<?> signIn(@RequestBody Habilitation user) {
+    public ResponseEntity<JsonWebtoken> signIn(@RequestBody Habilitation user) {
 //        System.out.println("Coucou");
         try {
             return ResponseEntity.ok(new JsonWebtoken(habilitationService.signin(user.getId(), user.getMotDePasse())));
@@ -64,5 +68,9 @@ public class HabilitationController {
         } else {
             return ResponseEntity.notFound().build();
         }
+    }
+    @GetMapping("/role/{id}")
+    public Optional<Habilitation> roleHabilitation(@PathVariable String id) {
+        return habilitationRepository.findById(id.toUpperCase());
     }
 }

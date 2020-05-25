@@ -28,6 +28,9 @@ public class Habilitation implements Serializable {
     @Enumerated(EnumType.STRING)
     List<Role> roleList;
 
+    @OneToOne(mappedBy = "habilitation")
+    Correspondant correspondant;
+
     public Habilitation() {
     }
 
