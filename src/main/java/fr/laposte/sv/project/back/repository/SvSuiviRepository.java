@@ -9,6 +9,11 @@ import java.util.Set;
 
 public interface SvSuiviRepository extends JpaRepository<SvSuivi, Integer> {
 
+    /**
+     * recherche une liste de connexions par le l'id du webservice
+     * @param webService
+     * @return une liste de connexions
+     */
 
     Set<SvSuivi> findSvSuiviByWebService(WebService webService);
 

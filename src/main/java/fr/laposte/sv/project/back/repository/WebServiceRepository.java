@@ -10,8 +10,17 @@ import java.util.Set;
 public interface WebServiceRepository extends JpaRepository<WebService, Integer> {
 
 
+    /**
+     * Recherche webservice par son nom
+     * @param webService
+     * @return un webservice
+     */
     Optional<WebService> findByWebService(String webService);
 
-
+    /**
+     * recherche une liste de webservice par son application
+     * @param application
+     * @return une liste de webservice
+     */
     Set<WebService> findWebServiceByApplication(Application application);
 }

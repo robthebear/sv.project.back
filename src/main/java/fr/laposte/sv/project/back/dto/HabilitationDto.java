@@ -14,7 +14,9 @@ import java.util.List;
 @Setter
 @Getter
 @AllArgsConstructor
-
+/**
+ * Model Dto pour appelle de l'habilitation depuis le front
+ */
 public class HabilitationDto {
     String id;
 

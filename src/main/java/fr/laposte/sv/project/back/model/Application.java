@@ -13,7 +13,9 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Model de la table application avec table relationelle entre correspondants et applications
+ */
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Setter
 @Getter

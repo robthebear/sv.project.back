@@ -1,6 +1,8 @@
 package fr.laposte.sv.project.back.dto;
 
-
+/**
+ * model du token
+ */
 public class JsonWebtoken {
     private final String access_token;
 

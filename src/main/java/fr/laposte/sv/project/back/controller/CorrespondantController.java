@@ -13,7 +13,6 @@ import java.util.Collection;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/correspondant")
 public class CorrespondantController {
 
@@ -23,16 +22,26 @@ public class CorrespondantController {
     @Autowired
     private CorrespondantService correspondantService;
 
+    /**
+     * Methode qui permet de rechercher tous les correspondants
+     * @return la liste de tous les correspondants
+     */
     @GetMapping
     public Collection<Correspondant> findAll() {
 
         return correspondantRepository.findAll();
     }
 
+    /**
+     * Recherche un correspondant par id
+     * @param id
+     * @return le correspondant qui depend de cet id
+     */
     @GetMapping("/id/{id}")
     public Optional<Correspondant> findById(@PathVariable String id) {
         return correspondantRepository.findById(id.toUpperCase());
     }
+//TODO Créer une méthode qui permet, avec un string de rechercher dans toute la liste des correspondants, nom, prenom ou idRH
 
     @GetMapping("/{nom}")
     public Optional<Correspondant> findByNom(@PathVariable String nom) {
@@ -49,6 +58,10 @@ public class CorrespondantController {
         return correspondantRepository.findByEmail(email);
     }
 
+    /**
+     * Permet de supprimer un correspondant par son id
+     * @param id
+     */
     @DeleteMapping("/{id}")
     public void delCorrespondant(@PathVariable String id) {
         Optional<Correspondant> optionalCorrespondant = correspondantRepository.findById(id.toUpperCase());
@@ -65,6 +78,12 @@ public class CorrespondantController {
 //        return correspondantService.updateCorrespondant(correspondant);
 //        }
 
+    /**
+     * Permet de mettre à jour un correspondant par son id
+     * @param id
+     * @param correspondant
+     * @return sauvegarde les modifications du correspondant
+     */
     @PutMapping("/update/{id}")
     public ResponseEntity<Correspondant> updateCorrespondant(@PathVariable String id, @Valid @RequestBody Correspondant correspondant) {
 

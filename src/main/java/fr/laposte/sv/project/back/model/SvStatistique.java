@@ -8,6 +8,9 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * Model de la table SvStatistique
+ */
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Setter
 @Getter

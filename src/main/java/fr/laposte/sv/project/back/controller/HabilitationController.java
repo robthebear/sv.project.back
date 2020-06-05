@@ -17,7 +17,6 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/habilitation")
 public class HabilitationController {
 
@@ -43,6 +42,11 @@ public class HabilitationController {
         }
     }
 
+    /**
+     * Methode pour que l'utilisateur se connecte
+     * @param user
+     * @return le token avec le role et id RH
+     */
     @PostMapping("/sign-in")
     public ResponseEntity<JsonWebtoken> signIn(@RequestBody Habilitation user) {
 //        System.out.println("Coucou");
@@ -69,6 +73,12 @@ public class HabilitationController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    /**
+     * Controller pour recherche le role avec l'id
+     * @param id
+     * @return le role du correspondant
+     */
     @GetMapping("/role/{id}")
     public Optional<Habilitation> roleHabilitation(@PathVariable String id) {
         return habilitationRepository.findById(id.toUpperCase());

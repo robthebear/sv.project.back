@@ -9,6 +9,9 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
 
+/**
+ * Model de la table Correspondant avec les relations sur habilitation, application
+ */
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Setter
 @Getter

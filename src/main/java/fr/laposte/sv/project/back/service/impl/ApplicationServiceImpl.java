@@ -24,7 +24,7 @@ public class ApplicationServiceImpl implements ApplicationService {
 
     /**
      * Permet d'afficher l'application si elle vient d'etre créée.
-     * @return
+     * @return l'application avec les champs vides
      */
     @Override
     public Set<Application> applicationAMettreAJour() {

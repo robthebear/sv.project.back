@@ -8,7 +8,5 @@ import org.springframework.stereotype.Repository;
 public interface HabilitationRepository extends JpaRepository<Habilitation, String> {
 
 
-//    boolean existsByUsername(String id);
-//
-//    Optional<Habilitation> findByUsername(String username);
+
 }

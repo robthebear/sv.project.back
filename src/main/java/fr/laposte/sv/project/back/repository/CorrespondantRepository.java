@@ -7,6 +7,8 @@ import java.util.Optional;
 
 public interface CorrespondantRepository extends JpaRepository<Correspondant, String> {
 
+    // Permet de retourner un correspondant avec un des 3 strings
+
     Optional<Correspondant> findByNom(String nom);
 
     Optional<Correspondant> findByFonction(String fonction);

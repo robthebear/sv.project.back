@@ -19,6 +19,10 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
+
+/**
+ * Model de la table SvErreur
+ */
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Setter
 @Getter

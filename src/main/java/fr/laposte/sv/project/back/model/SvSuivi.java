@@ -18,6 +18,9 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
+/**
+ * Model de la table SvSuivi
+ */
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Setter
 @Getter
@@ -57,18 +60,5 @@ public class SvSuivi implements Serializable {
     }
 
 
-//    public SvSuivi(String dateHeureDebut, String heureFin, String statutRetour, String statutHttp, String webservice) throws ParseException {
-//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-//        DateTimeFormatter formatTime = DateTimeFormatter.ofPattern("HH:mm:ss:SSS");
-//
-//        String dateR[] = dateHeureDebut.split(" ");
-//        String heure[] = heureFin.split(" ");
-//
-//        this.date = LocalDate.parse(dateR[0], formatter);
-//        this.heureDebut = LocalTime.parse(dateR[1], formatTime);
-//        this.heureFin = LocalTime.parse(heure[1], formatTime);
-//        this.statutRetour = statutRetour;
-//        this.statutHttp = statutHttp;
-//        this.webService = new WebService(webservice);
-//    }
+
 }

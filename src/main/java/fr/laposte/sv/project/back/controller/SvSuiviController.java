@@ -14,7 +14,6 @@ import java.util.Set;
 
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("svsuivi")
 public class SvSuiviController {
 
@@ -26,19 +25,34 @@ public class SvSuiviController {
     @Autowired
     SvSuiviService svSuiviService;
 
+    /**
+     * Controller qui appelle toutes les connexions
+     * @return la liste de toutes les connexions
+     */
     @GetMapping
     public Collection<SvSuivi> findAll() {
 
         return svSuiviRepository.findAll();
     }
 
+    /**
+     * controller qui recherche une liste de connexion par webservice
+     * @param webService
+     * @return la liste de connexion correspondante
+     */
     @GetMapping("/parWebService/{webService}")
     public Set<SvSuivi> findSvSuiviByWebService(@PathVariable WebService webService) {
         return svSuiviService.findSvSuiviByWebService(webService);
     }
 
 
-
+    /**
+     * Controller qui recherche une connexion par date de debut, de fin et par webservice
+     * @param dateDebut
+     * @param dateFin
+     * @param webService
+     * @return la liste de connexion triée
+     */
     @GetMapping("/parDate/{date1}/{date2}/{webservice}")
     public Set<SvSuivi> svSuiviParDate(@PathVariable("date1") String dateDebut, @PathVariable("date2") String dateFin, @PathVariable("webservice") WebService webService) {
         LocalDate dateD = LocalDate.parse(dateDebut);

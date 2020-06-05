@@ -14,7 +14,6 @@ import java.util.Optional;
 import java.util.Set;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/resultat")
 public class ResultatController {
 
@@ -23,6 +22,15 @@ public class ResultatController {
 
     @Autowired
     private WebServiceRepository webServiceRepository;
+
+    /**
+     * Controller qui appelle le back avec plusieurs parametres
+     * @param application
+     * @param webService
+     * @param dateD
+     * @param dateF
+     * @return un tableau de resultat nombre et temps de connexion, nombre et temps d'erreurs par webservice.
+     */
 
     @GetMapping("/{application}/{webservice}/{dateDebut}/{dateFin}")
     public Set<ResultatDto> resultat(@PathVariable Application application, @PathVariable("webservice") Integer webService, @PathVariable("dateDebut") String dateD, @PathVariable("dateFin") String dateF) {

@@ -45,8 +45,11 @@ public class ExtractionDonnee {
     @Autowired
     SvSuiviRepository svSuiviRepository;
 
-
+    /**
+     * methode qui permet de lire le fichier liste des applications et de les integrer dans la base de donnee
+     */
     public void extraireApplication() {
+        //TODO Ajouter une methode si l'application existe deja
         FileReader fr = null;
 
         try {
@@ -81,7 +84,11 @@ public class ExtractionDonnee {
         }
     }
 
+    /**
+     * Methode qui permet d'extraire les connexions dans un fichier
+     */
     public void extraireSuivi() {
+        //TODO creer des methodes pour supprimer la redondance
         FileReader fr = null;
         String tabSuivi[] = new String[0];
         try {
@@ -169,7 +176,11 @@ public class ExtractionDonnee {
         }
     }
 
+    /**
+     * Methode qui permet d'extraire les erreurs vers la base de donnée
+     */
     public void extraireErreur() {
+        //TODO creer des methodes pour redondance et supprimer du constructeur
         FileReader fr = null;
 
         try {

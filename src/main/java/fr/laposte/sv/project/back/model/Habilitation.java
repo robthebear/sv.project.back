@@ -11,6 +11,9 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * model de la table habilitation avec table relationnelle pour les correspondants
+ */
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Setter
 @Getter

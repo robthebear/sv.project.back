@@ -13,7 +13,6 @@ import java.util.Optional;
 import java.util.Set;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/webservice")
 public class WebServiceController {
 
@@ -38,7 +37,7 @@ public class WebServiceController {
      * Controller qui recupere un objet webservice avec son nom
      *
      * @param webService
-     * @return
+     * @return le webservice correspondant
      */
     @GetMapping("/parWS/{webService}")
     public Optional<WebService> findByWebService(@PathVariable String webService) {

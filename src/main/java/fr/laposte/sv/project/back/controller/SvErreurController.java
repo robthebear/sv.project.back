@@ -13,7 +13,6 @@ import java.util.Set;
 
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/sverreur")
 public class SvErreurController {
 
@@ -24,12 +23,22 @@ public class SvErreurController {
     @Autowired
     private SvErreurService svErreurService;
 
-
+    /**
+     * Controller qui appelle toutes les erreurs
+     * @return la liste de la table erreurs
+     */
     @GetMapping
     public Collection<SvErreur> findAll() {
         return svErreurRepository.findAll();
     }
 
+    /**
+     * Controller qui recherche une erreur par date début et fin et webservice
+     * @param dateDebut
+     * @param dateFin
+     * @param webservice
+     * @return une liste d'erreurs triées
+     */
     @GetMapping("/parDate/{date1}/{date2}/{webservice}")
     public Set<SvErreur> svErreurParDate(@PathVariable("date1") String dateDebut, @PathVariable("date2") String dateFin, @PathVariable("webservice") WebService webservice) {
         LocalDate dateD = LocalDate.parse(dateDebut);

@@ -1,13 +1,15 @@
 package fr.laposte.sv.project.back.dto;
 
-import fr.laposte.sv.project.back.model.WebService;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.WeakHashMap;
+
+/**
+ * Model pour l'affichage des résultats
+ */
 
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @AllArgsConstructor
@@ -16,7 +18,7 @@ import java.util.WeakHashMap;
 @Setter
 public class ResultatDto {
 
-String webService;
+    String webService;
     LocalDate dateDebut;
     LocalDate dateFin;
     int nbConnexion;

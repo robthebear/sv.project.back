@@ -14,6 +14,9 @@ import java.time.format.DateTimeFormatter;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Model de la table webservice avec relation entre les tables application, svErreur, svStatistique, svSuivi
+ */
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Setter
 @Getter
