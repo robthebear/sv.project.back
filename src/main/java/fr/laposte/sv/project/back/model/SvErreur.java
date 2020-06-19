@@ -47,44 +47,21 @@ public class SvErreur implements Serializable {
     @JoinColumn(name = "web_service", referencedColumnName = "id")
     WebService webService;
 
-    public SvErreur(String dateDebut, String dateFin, String statutRetour, String statutHttp,String libelleErreur, String webservice) throws ParseException {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        DateTimeFormatter formatTime = DateTimeFormatter.ofPattern("HH:mm:ss:SSS");
-
-        String dateR[] = dateDebut.split(" ");
-
-
-        this.date = LocalDate.parse(dateR[0], formatter);
-        this.heureDebut = LocalTime.parse(dateR[1], formatTime);
-        this.duree = UtileServiceImpl.duree(dateDebut, dateFin);
+    public SvErreur(LocalDate date, LocalTime heureDebut, Long duree, String statutRetour, String statutHttp, String libelleErreur , String webservice) {
+        this.date = date;
+        this.heureDebut = heureDebut;
+        this.duree = duree;
         this.statutRetour = statutRetour;
         this.statutHttp = statutHttp;
         this.libelleErreur = libelleErreur;
         this.webService = new WebService(webservice);
     }
 
-//    public SvErreur(String dateHeureDebut, String heureFin, String statutRetour, String statutHttp, String libelleErreur, String webservice) {
-//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-//        DateTimeFormatter formatTime = DateTimeFormatter.ofPattern("HH:mm:ss:SSS");
-//
-//        String dateR[] = dateHeureDebut.split(" ");
-//        String heure[] = heureFin.split(" ");
-//
-//        this.date = LocalDate.parse(dateR[0], formatter);
-//        this.heureDebut = LocalTime.parse(dateR[1], formatTime);
-//        this.heureFin = LocalTime.parse(heure[1], formatTime);
-//        this.statutRetour = statutRetour;
-//        this.statutHttp = statutHttp;
-//        this.libelleErreur = libelleErreur;
-//        this.webService = new WebService(webservice);
 
-//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-//        return LocalDate.parse(date, formatter);
-//
-//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
-//        return LocalTime.parse(time, formatter);
-//
-//    }
+
+
+
+
 
 
 }

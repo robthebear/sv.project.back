@@ -3,10 +3,17 @@ package fr.laposte.sv.project.back.service.impl;
 import fr.laposte.sv.project.back.service.UtileService;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
 @Service
 public class UtileServiceImpl implements UtileService {
 
-    public static Long duree(String debut, String fin) {
+
+
+@Override
+    public Long duree(String debut, String fin) {
 
 
         String debut1[] = debut.split(" ");
@@ -22,5 +29,21 @@ public class UtileServiceImpl implements UtileService {
 
     }
 
+    @Override
+    public LocalDate dateEvenement (String dateDebut) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+        String dateR[] = dateDebut.split(" ");
+        LocalDate date = LocalDate.parse(dateR[0], formatter);
+        return date;
+
+    }
+    @Override
+    public LocalTime heureDebut (String dateDebut) {
+        DateTimeFormatter formatTime = DateTimeFormatter.ofPattern("HH:mm:ss:SSS");
+        String dateR[] = dateDebut.split(" ");
+        LocalTime heureDebut = LocalTime.parse(dateR[1], formatTime);
+    return heureDebut;
+    }
 
 }

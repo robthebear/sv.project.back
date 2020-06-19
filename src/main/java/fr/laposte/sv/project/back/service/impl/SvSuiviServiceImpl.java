@@ -39,94 +39,27 @@ public class SvSuiviServiceImpl implements SvSuiviService {
         return svSuivi;
     }
 
-//    @Override
-//    public Set<SvSuivi> findByDate(LocalDate date) {
-//        Set<SvSuivi> svSuivi = svSuiviRepository.findByDate(date);
-//        return svSuivi;
-//    }
+
 
 
     @Override
-    public Set<SvSuivi> svSuiviParDate(WebService webService, LocalDate dateDebut, LocalDate dateFin) {
+    public Set<SvSuivi> svSuiviParDate(WebService webService, String  dateDebut, String dateFin) {
+        LocalDate dateD = LocalDate.parse(dateDebut);
+        LocalDate dateF = LocalDate.parse(dateFin);
         Set<SvSuivi> svSuivis = svSuiviRepository.findSvSuiviByWebService(webService);
         Set<SvSuivi> suivis = new HashSet<>();
-//        DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss:SSS");
 
 
         for (SvSuivi svSuivi : svSuivis) {
-//            String dateR[] = format.format(svSuivi.getDateDebut()).split(" ");
-//            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-//            LocalDate date = LocalDate.parse(dateR[0], formatter);
-            if (svSuivi.getDate().isEqual(dateDebut) || svSuivi.getDate().isEqual(dateFin)) {
+
+            if (svSuivi.getDate().isEqual(dateD) || svSuivi.getDate().isEqual(dateF)) {
                 suivis.add(svSuivi);
-            } else if (svSuivi.getDate().isAfter(dateDebut) && svSuivi.getDate().isBefore(dateFin)) {
+            } else if (svSuivi.getDate().isAfter(dateD) && svSuivi.getDate().isBefore(dateF)) {
                 suivis.add(svSuivi);
             }
         }
         return suivis;
     }
 
-//    public SvSuiviDto svSuiviEnLecture(SvSuivi svSuivi){
-//
-//        DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss:SSS");
-//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-//        DateTimeFormatter formatTime = DateTimeFormatter.ofPattern("HH:mm:ss:SSS");
-//        Date db = svSuivi.getDateDebut();
-//        Date df = svSuivi.getDateFin();
-//
-//        String dateR[] = format.format(db).split(" ");
-//        String heure[] = format.format(df).split(" ");
-//        String d[] = dateR[1].split(":");
-//        String f[] = heure[1].split(":");
-//        int debut = Integer.parseInt(d[2]);
-//        int fin = Integer.parseInt(f[2]);
-//        SvSuiviDto svSuiviDto = new SvSuiviDto();
-//
-//        svSuiviDto.setId(svSuivi.getId());
-//        svSuiviDto.setDate(LocalDate.parse(dateR[0], formatter));
-//        svSuiviDto.setHeureDebut(LocalTime.parse(dateR[1], formatTime));
-//        svSuiviDto.setDuree(fin - debut);
-//        svSuiviDto.setStatutHttp(svSuivi.getStatutHttp());
-//        svSuiviDto.setStatutRetour(svSuivi.getStatutRetour());
-//        svSuiviDto.setWebService(svSuivi.getWebService());
-//
-//        return svSuiviDto;
-//    }
 
-//    @Override
-//    public Set<SvSuivi> svSuiviParDate(WebService webService, LocalDate dateDebut, LocalDate dateFin) {
-//        Set<SvSuivi> svSuivis = new HashSet<>();
-//        Set<SvSuivi> suivis = new HashSet<SvSuivi>();
-//        List<SvSuivi> svSuiviSansWs;
-//
-//
-//            svSuiviSansWs = svSuiviRepository.findAll();
-//            try {
-//                for (SvSuivi svSuivi : svSuiviSansWs) {
-//                    if (svSuivi.getDate().isEqual(dateDebut) || svSuivi.getDate().isEqual(dateFin)) {
-//                        suivis.add(svSuivi);
-//                    } else if (svSuivi.getDate().isAfter(dateDebut) && svSuivi.getDate().isBefore(dateFin)) {
-//                        suivis.add(svSuivi);
-//                    }
-//                } return suivis;
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//             }
-//       if (svSuiviRepository.findSvSuiviByWebService(webService).equals(suivis.getClass())) {
-//            try {
-//                for (SvSuivi svSuivi : svSuivis) {
-//
-//                    if (svSuivi.getDate().isEqual(dateDebut) || svSuivi.getDate().isEqual(dateFin)) {
-//                        suivis.add(svSuivi);
-//                    } else if (svSuivi.getDate().isAfter(dateDebut) && svSuivi.getDate().isBefore(dateFin)) {
-//                        suivis.add(svSuivi);
-//                    }
-//
-//                } return suivis;
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//
-//        }
-//    }
 }

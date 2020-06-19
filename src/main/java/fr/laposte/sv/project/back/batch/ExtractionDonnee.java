@@ -9,9 +9,7 @@ import fr.laposte.sv.project.back.repository.ApplicationRepository;
 import fr.laposte.sv.project.back.repository.SvErreurRepository;
 import fr.laposte.sv.project.back.repository.SvSuiviRepository;
 import fr.laposte.sv.project.back.repository.WebServiceRepository;
-import fr.laposte.sv.project.back.service.SvErreurService;
-import fr.laposte.sv.project.back.service.SvSuiviService;
-import fr.laposte.sv.project.back.service.WebServiceService;
+import fr.laposte.sv.project.back.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -21,6 +19,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.text.ParseException;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 @Component
@@ -44,6 +43,12 @@ public class ExtractionDonnee {
 
     @Autowired
     SvSuiviRepository svSuiviRepository;
+
+    @Autowired
+    UtileService utileService;
+
+    @Autowired
+    ApplicationService applicationService;
 
     /**
      * methode qui permet de lire le fichier liste des applications et de les integrer dans la base de donnee
@@ -108,62 +113,28 @@ public class ExtractionDonnee {
                 } else {
 
 
-                    try {
-                        Application batchApplication = new Application(
-                                tabSuivi[0],
-                                " ",
-                                " ");
-                        if (applicationRepository.findById(tabSuivi[0]).isPresent()) {
-//                            System.out.println("Application presente");
-                        } else {
-                            applicationRepository.saveAndFlush(batchApplication);
-                        }
+               applicationService.nouvelleApplication(tabSuivi[0]);
 
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    try {
-                        WebService batchWebService = new WebService(
-                                tabSuivi[6],
-                                tabSuivi[5],
-                                tabSuivi[4],
-                                tabSuivi[0]);
-                        if ((webServiceService.findByWebService(batchWebService.getWebService()).isPresent())) {
+                    WebService batchWebService = new WebService(
+                            utileService.dateEvenement(tabSuivi[6]),
+                            tabSuivi[5],
+                            tabSuivi[4],
+                            tabSuivi[0]);
+                    if ((webServiceService.findByWebService(batchWebService.getWebService()).isPresent())) {
 
-                            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-                            String date[] = tabSuivi[6].split(" ");
-                            LocalDate date1 = LocalDate.parse(date[0], formatter);
-                            LocalDate dateCreation = webServiceService.findDateCreation(batchWebService.getWebService());
-
-                            if (dateCreation.isBefore(date1)) {
-//                                System.out.println(dateCreation);
-//                                System.out.println(date1);
-//                                System.out.println("webservice ok");
+                        webServiceService.webserviceMisAJour(batchWebService, tabSuivi[6]);
 
 
-                            } else if (date1.isBefore(dateCreation)) {
-
-                                System.out.println(dateCreation);
-                                System.out.println(date1);
-                                int id = webServiceService.findIdByWebService(batchWebService.getWebService());
-
-                                webServiceService.modifierWebService(batchWebService, id);
-//                                System.out.println("webservice updaté");
-                            }
-
-
-                        } else {
-                            System.out.println(batchWebService);
-                            webServiceService.saveWebService(batchWebService);
+                    } else {
+                        System.out.println(batchWebService);
+                        webServiceService.saveWebService(batchWebService);
 //                            System.out.println("webservice enregistré");
-                        }
-
-                    } catch (ParseException e) {
-                        e.printStackTrace();
                     }
+
                     SvSuivi batchSvSuivi = new SvSuivi(
-                            tabSuivi[6],
-                            tabSuivi[7],
+                            utileService.dateEvenement(tabSuivi[6]),
+                            utileService.heureDebut(tabSuivi[6]),
+                            utileService.duree(tabSuivi[6],tabSuivi[7]),
                             tabSuivi[9],
                             tabSuivi[10],
                             tabSuivi[4]);
@@ -171,7 +142,7 @@ public class ExtractionDonnee {
                     svSuiviService.saveSvSuivi(batchSvSuivi);
                 }
             }
-        } catch (IOException | ParseException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -193,65 +164,30 @@ public class ExtractionDonnee {
         try {
             while ((ligne = br.readLine()) != null) {
                 String tabErreur[] = ligne.split(";", -1);
-                try {
-                    Application batchApplication = new Application(
-                            tabErreur[0],
-                            " ",
-                            " ");
-                    if (applicationRepository.findById(tabErreur[0]).isPresent()) {
-//                        System.out.println("Application presente");
-                    } else {
-                        applicationRepository.saveAndFlush(batchApplication);
-                    }
 
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                try {
-                    WebService batchWebService = new WebService(
-                            tabErreur[6],
-                            tabErreur[5],
-                            tabErreur[4],
-                            tabErreur[0]);
-                    if ((webServiceService.findByWebService(batchWebService.getWebService()).isPresent())) {
+                applicationService.nouvelleApplication(tabErreur[0]);
 
-                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-                        String date[] = tabErreur[6].split(" ");
-                        LocalDate date1 = LocalDate.parse(date[0], formatter);
-                        LocalDate dateCreation = webServiceService.findDateCreation(batchWebService.getWebService());
+                WebService batchWebService = new WebService(
+                        utileService.dateEvenement(tabErreur[6]),
+                        tabErreur[5],
+                        tabErreur[4],
+                        tabErreur[0]);
+                if ((webServiceService.findByWebService(batchWebService.getWebService()).isPresent())) {
 
-                        if (dateCreation.isBefore(date1)) {
-//                            System.out.println(dateCreation);
-//                            System.out.println(date1);
-//                            System.out.println("webservice ok");
+                    webServiceService.webserviceMisAJour(batchWebService, tabErreur[6]);
 
-
-                        } else if (date1.isBefore(dateCreation)) {
-
-                            System.out.println(dateCreation);
-                            System.out.println(date1);
-                            int id = webServiceService.findIdByWebService(batchWebService.getWebService());
-
-                            webServiceService.modifierWebService(batchWebService, id);
-//                            System.out.println("webservice updaté");
-                        }
-
-
-                    } else {
-                        System.out.println(batchWebService);
-                        webServiceService.saveWebService(batchWebService);
+                } else {
+                    System.out.println(batchWebService);
+                    webServiceService.saveWebService(batchWebService);
 //                        System.out.println("webservice enregistré");
-                    }
-
-                } catch (ParseException e) {
-                    e.printStackTrace();
                 }
 
 
                 SvErreur batchSvErreur = new SvErreur(
 
-                        tabErreur[6],
-                        tabErreur[7],
+                        utileService.dateEvenement(tabErreur[6]),
+                        utileService.heureDebut(tabErreur[6]),
+                        utileService.duree(tabErreur[6],tabErreur[7]),
                         tabErreur[9],
                         tabErreur[10],
                         tabErreur[13],
@@ -260,7 +196,7 @@ public class ExtractionDonnee {
                 svErreurService.saveSvErreur(batchSvErreur);
 
             }
-        } catch (IOException | ParseException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

@@ -54,10 +54,9 @@ public class WebService implements Serializable {
         this.webService = webservice;
     }
 
-    public WebService(String dateCreation, String libelleWebService, String webService, String application) throws ParseException {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        String dateR[] = dateCreation.split(" ");
-        this.dateCreation = LocalDate.parse(dateR[0], formatter);
+    public WebService(LocalDate dateCreation, String libelleWebService, String webService, String application) {
+
+        this.dateCreation = dateCreation;
         this.libelleWebService = libelleWebService;
         this.webService = webService;
         this.application = new Application(application);

@@ -27,17 +27,15 @@ public class ResultatController {
      * Controller qui appelle le back avec plusieurs parametres
      * @param application
      * @param webService
-     * @param dateD
-     * @param dateF
+     * @param dateDebut
+     * @param dateFin
      * @return un tableau de resultat nombre et temps de connexion, nombre et temps d'erreurs par webservice.
      */
 
     @GetMapping("/{application}/{webservice}/{dateDebut}/{dateFin}")
-    public Set<ResultatDto> resultat(@PathVariable Application application, @PathVariable("webservice") Integer webService, @PathVariable("dateDebut") String dateD, @PathVariable("dateFin") String dateF) {
-        Optional<WebService> webService1 = webServiceRepository.findById(webService);
-        LocalDate dateDebut = LocalDate.parse(dateD);
-        LocalDate dateFin = LocalDate.parse(dateF);
+    public Set<ResultatDto> resultat(@PathVariable Application application, @PathVariable("webservice") Integer webService, @PathVariable("dateDebut") String dateDebut, @PathVariable("dateFin") String dateFin) {
 
-        return resultatService.resultat(application, webService1, dateDebut, dateFin);
+
+        return resultatService.resultat(application, webService, dateDebut, dateFin);
     }
 }

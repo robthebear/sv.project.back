@@ -6,6 +6,7 @@ import fr.laposte.sv.project.back.service.ApplicationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
@@ -37,7 +38,10 @@ public class ApplicationController {
      * @return les nouvelles applications qui n'ont pas de nom
      */
     @GetMapping("/applicationAMettreAJour")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+
     public Set<Application> applicationAMettreAJour(){
+
         return applicationService.applicationAMettreAJour();
     }
 
@@ -48,6 +52,8 @@ public class ApplicationController {
      * @return la sauvegarde de cette mise a jour de l'application
      */
     @PutMapping("/mettreAjourApplication/{id}")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+
     public ResponseEntity<Application> mettreAjourApplication(@PathVariable String id, @RequestBody Application application) {
         return applicationService.mettreAjourApplication(id, application);
     }
@@ -88,36 +94,20 @@ public class ApplicationController {
      * @return enregistre une nouvelle application en base
      */
     @PostMapping
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public Application ajoutApplication(@RequestBody Application application) {
         //TODO gérer les erreurs
         return applicationRepository.saveAndFlush(application);
     }
 
 
-//    @PutMapping
-//    public ResponseEntity<Application> updateApplication(@RequestBody Application application) {
-//        Optional<Application> applicationEnBase = applicationRepository.findById(application.getId());
-//        if (applicationEnBase.isPresent()) {
-//            if (application.getLibelle() == null) {
-//                application.setLibelle(applicationEnBase.get().getLibelle());
-//            }
-//            if (application.getType() == null) {
-//                application.setType(applicationEnBase.get().getType());
-//            }
-//            if (application.getWebService() == null) {
-//                application.setWebService(applicationEnBase.get().getWebService());
-//            }
-//            return new ResponseEntity<>(applicationRepository.saveAndFlush(application), HttpStatus.CREATED);
-//        } else {
-//            return new ResponseEntity<>(application, HttpStatus.NOT_FOUND);
-//        }
-//    }
 
     /**
      * Permet de supprimer une application grace à son id
      * @param id
      */
     @DeleteMapping("/supprimer/{id}")
+    @PreAuthorize("hasRole('ROLE_SUPERADMIN')")
     public void delApplication(@PathVariable String id) {
         //TODO Transformer cette méthode en update pour désactiver et non supprimer l'application
         Optional<Application> optionalApplication = applicationRepository.findById(id);

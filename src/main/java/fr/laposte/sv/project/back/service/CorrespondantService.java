@@ -7,4 +7,6 @@ import org.springframework.stereotype.Service;
 @Service
 public interface CorrespondantService {
     ResponseEntity<Correspondant> updateCorrespondant(String id, Correspondant correspondant);
+
+    void delCorrespondant(String id);
 }

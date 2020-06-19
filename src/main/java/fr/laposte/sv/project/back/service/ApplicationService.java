@@ -13,4 +13,6 @@ public interface ApplicationService {
     Set<Application> applicationAMettreAJour();
 
     ResponseEntity<Application> mettreAjourApplication(String id, Application application);
+
+    void nouvelleApplication(String id);
 }

@@ -64,19 +64,10 @@ public class CorrespondantController {
      */
     @DeleteMapping("/{id}")
     public void delCorrespondant(@PathVariable String id) {
-        Optional<Correspondant> optionalCorrespondant = correspondantRepository.findById(id.toUpperCase());
-        if (optionalCorrespondant.isPresent()) {
-            correspondantRepository.deleteById(id.toUpperCase());
-            System.out.print("Correspondant supprimé");
-//        } else {
-//            System.out.print("Pas de correspondant à supprimer");
-        }
+        correspondantService.delCorrespondant(id);
+
     }
-//        @PutMapping("/update")
-//    public ResponseEntity<Correspondant> updateCorrespondant(@RequestBody(required = false) Correspondant correspondant) {
-//        System.out.println(correspondant);
-//        return correspondantService.updateCorrespondant(correspondant);
-//        }
+
 
     /**
      * Permet de mettre à jour un correspondant par son id

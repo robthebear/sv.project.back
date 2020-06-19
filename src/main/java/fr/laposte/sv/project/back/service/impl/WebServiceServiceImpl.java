@@ -4,7 +4,9 @@ import fr.laposte.sv.project.back.model.Application;
 import fr.laposte.sv.project.back.model.WebService;
 import fr.laposte.sv.project.back.repository.ApplicationRepository;
 import fr.laposte.sv.project.back.repository.WebServiceRepository;
+import fr.laposte.sv.project.back.service.UtileService;
 import fr.laposte.sv.project.back.service.WebServiceService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -17,6 +19,9 @@ public class WebServiceServiceImpl implements WebServiceService {
     private WebServiceRepository webServiceRepository;
 
     private ApplicationRepository applicationRepository;
+
+    @Autowired
+    UtileService utileService;
 
     public WebServiceServiceImpl(WebServiceRepository webServiceRepository, ApplicationRepository applicationRepository) {
         this.webServiceRepository = webServiceRepository;
@@ -62,5 +67,28 @@ public class WebServiceServiceImpl implements WebServiceService {
     public WebService modifierWebService(WebService webService, int id) {
         webService.setId(id);
         return webServiceRepository.saveAndFlush(webService);
+    }
+
+    @Override
+    public WebService webserviceMisAJour(WebService webService, String dateWebservice) {
+        LocalDate date = utileService.dateEvenement(dateWebservice);
+        LocalDate dateCreation = findDateCreation(webService.getWebService());
+
+        if (dateCreation.isBefore(date)) {
+//                                System.out.println(dateCreation);
+//                                System.out.println(date1);
+//                                System.out.println("webservice ok");
+
+
+        } else if (date.isBefore(dateCreation)) {
+
+            System.out.println(dateCreation);
+            System.out.println(date);
+            int id = findIdByWebService(webService.getWebService());
+
+            modifierWebService(webService, id);
+//                                System.out.println("webservice updaté");
+        }
+        return webService;
     }
 }

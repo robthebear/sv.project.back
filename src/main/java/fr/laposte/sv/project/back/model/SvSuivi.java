@@ -44,21 +44,15 @@ public class SvSuivi implements Serializable {
     @JoinColumn(name = "web_service", referencedColumnName = "id")
     WebService webService;
 
-    public SvSuivi(String dateDebut, String dateFin, String statutRetour, String statutHttp, String webservice) throws ParseException {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        DateTimeFormatter formatTime = DateTimeFormatter.ofPattern("HH:mm:ss:SSS");
-
-        String dateR[] = dateDebut.split(" ");
 
 
-        this.date = LocalDate.parse(dateR[0], formatter);
-        this.heureDebut = LocalTime.parse(dateR[1], formatTime);
-        this.duree = UtileServiceImpl.duree(dateDebut, dateFin);
+
+    public SvSuivi(LocalDate date, LocalTime heureDebut, Long duree, String statutRetour, String statutHttp, String webservice) {
+        this.date = date;
+        this.heureDebut = heureDebut;
+        this.duree = duree;
         this.statutRetour = statutRetour;
         this.statutHttp = statutHttp;
         this.webService = new WebService(webservice);
     }
-
-
-
 }

@@ -11,6 +11,6 @@ import java.util.Set;
 
 @Service
 public interface ResultatService {
-    Set<ResultatDto> resultat(Application application, Optional<WebService> webservices, LocalDate dateDebut, LocalDate dateFin);
+    Set<ResultatDto> resultat(Application application, int webservice, String dateDebut, String dateFin);
 
 }

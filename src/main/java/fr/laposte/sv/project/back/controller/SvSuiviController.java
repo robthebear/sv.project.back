@@ -55,10 +55,7 @@ public class SvSuiviController {
      */
     @GetMapping("/parDate/{date1}/{date2}/{webservice}")
     public Set<SvSuivi> svSuiviParDate(@PathVariable("date1") String dateDebut, @PathVariable("date2") String dateFin, @PathVariable("webservice") WebService webService) {
-        LocalDate dateD = LocalDate.parse(dateDebut);
-        LocalDate dateF = LocalDate.parse(dateFin);
-
-        return svSuiviService.svSuiviParDate(webService, dateD, dateF);
+        return svSuiviService.svSuiviParDate(webService, dateDebut, dateFin);
     }
 
 

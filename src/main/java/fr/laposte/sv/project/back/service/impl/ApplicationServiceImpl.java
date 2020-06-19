@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.*;
 
@@ -83,6 +82,24 @@ Optional<Application> applicationEnBase = applicationRepository.findById(id);
             }
         }
         return applicationFiltre;
+
+    }
+    @Override
+    public void nouvelleApplication(String id) {
+        try {
+            Application application = new Application(
+                    id,
+                    " ",
+                    " ");
+            if (applicationRepository.findById(id).isPresent()) {
+//                            System.out.println("Application presente");
+            } else {
+              applicationRepository.saveAndFlush(application);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 }

@@ -24,41 +24,8 @@ public class CorrespondantServiceImpl implements CorrespondantService {
     @Autowired
     ApplicationRepository applicationRepository;
 
-//    @Override
-//    public Correspondant deleteApplication(String idCorrespondant, String idApplication) {
-//        String  relation = correspondantRepository.getOne(idCorrespondant).getApplications(idApplication);
-//    }
 
-    //@Override
-//    public ResponseEntity<Correspondant> updateCorrespondant(Correspondant correspondant) {
-//    Optional<Correspondant> correspondantEnBase = correspondantRepository.findById(correspondant.getId());
-//    Set<Application> applicationsEnBase = correspondantEnBase.get().getApplications();
-//
-//    if (correspondantEnBase.isPresent()) {
-//        if (correspondant.getNom().isEmpty()) {
-//            correspondant.setNom(correspondantEnBase.get().getNom());
-//        }
-//        if (correspondant.getPrenom().isEmpty()) {
-//            correspondant.setPrenom(correspondantEnBase.get().getPrenom());
-//        }
-//        if (correspondant.getFonction().isEmpty()) {
-//            correspondant.setFonction(correspondantEnBase.get().getFonction());
-//        }
-//        if (correspondant.getEmail().isEmpty()) {
-//            correspondant.setEmail(correspondantEnBase.get().getEmail());
-//        }
-//        if (correspondant.getTelephone().isEmpty()) {
-//            correspondant.setTelephone(correspondantEnBase.get().getTelephone());
-//        }
-//        if (correspondant.getApplications().isEmpty()) {
-//                correspondant.setApplications(applicationsEnBase);
-//
-//        }
-//        return new ResponseEntity<>(correspondantRepository.saveAndFlush(correspondant), HttpStatus.CREATED);
-//    } else {
-//        return new ResponseEntity<>(correspondant, HttpStatus.NOT_FOUND);
-//    }
-//}
+
     @Override
     public ResponseEntity<Correspondant> updateCorrespondant(String id, Correspondant correspondant) {
         Optional<Correspondant> correspondantEnBase = correspondantRepository.findById(id);
@@ -81,6 +48,15 @@ public class CorrespondantServiceImpl implements CorrespondantService {
         } else {
             //TODO build notFound reponse sans body
             return new ResponseEntity<>(correspondantEnBase.get(), HttpStatus.NOT_FOUND);
+        }
+    }
+    @Override
+    public void delCorrespondant(String id){
+        Optional<Correspondant> optionalCorrespondant = correspondantRepository.findById(id.toUpperCase());
+        if (optionalCorrespondant.isPresent()) {
+            correspondantRepository.deleteById(id.toUpperCase());
+            System.out.print("Correspondant supprimé");
+
         }
     }
 }

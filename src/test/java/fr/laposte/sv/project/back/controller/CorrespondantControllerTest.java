@@ -1,5 +1,6 @@
 package fr.laposte.sv.project.back.controller;
 
+import fr.laposte.sv.project.back.model.Correspondant;
 import fr.laposte.sv.project.back.repository.CorrespondantRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -11,6 +12,9 @@ import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
+
+import java.util.ArrayList;
+import java.util.HashSet;
 
 import static org.junit.jupiter.api.Assertions.fail;
 import static org.mockito.Mockito.when;
@@ -31,7 +35,7 @@ class CorrespondantControllerTest {
     @Test
     @WithMockUser
     void findAll() throws Exception {
-        when(correspondantRepository.findAll()).thenReturn(null);
+        when(correspondantRepository.findAll()).thenReturn(new ArrayList<>());
 
         ResultActions reponse = this.mockMvc.perform(get("/correspondant"));
 
@@ -39,8 +43,12 @@ class CorrespondantControllerTest {
     }
 
     @Test
-    void findById() {
-        fail();
+    void findById() throws Exception {
+        when(this.correspondantRepository.findById("bgf123")).thenReturn(null);
+
+        ResultActions reponse = this.mockMvc.perform(get("/correspondant/id/"));
+
+        reponse.andExpect(status().isOk());
 
     }
 

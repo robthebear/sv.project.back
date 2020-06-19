@@ -14,9 +14,7 @@ public interface SvSuiviService {
 
     Set<SvSuivi> findSvSuiviByWebService(WebService webService);
 
-
-
-    Set<SvSuivi> svSuiviParDate(WebService webService, LocalDate dateDebut, LocalDate dateFin);
+    Set<SvSuivi> svSuiviParDate(WebService webService, String dateDebut, String dateFin);
 
 
 

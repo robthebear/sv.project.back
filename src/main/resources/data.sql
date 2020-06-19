@@ -13,19 +13,20 @@
 # INSERT INTO sv_project.correspondant (id, nom, prenom, fonction, telephone, email) values ('PPQR933', 'Delannoy', 'Laurence', 'Directeur', '0000000000', 'laurence.delannoy@laposte.fr');
 #
 #
+# #
+# # INSERT INTO sv_project.habilitation (id, mot_de_passe) VALUES ('PBGF123', '123456789');
+# # INSERT INTO sv_project.habilitation (id, mot_de_passe) VALUES ('PPDL890', 'james');
+# # INSERT INTO sv_project.habilitation (id, mot_de_passe) VALUES ('PPQR933', 'prstres');
+# #
+# #
+# #
+# #
+# #
 #
-# INSERT INTO sv_project.habilitation (id, mot_de_passe) VALUES ('PBGF123', '123456789');
-# INSERT INTO sv_project.habilitation (id, mot_de_passe) VALUES ('PPDL890', 'james');
-# INSERT INTO sv_project.habilitation (id, mot_de_passe) VALUES ('PPQR933', 'prstres');
-#
-#
-#
-#
-#
-#
-# INSERT INTO sv_project.habilitation_role_list (habilitation_id, role_list) VALUES ('PBGF123', 'ROLE_ADMIN');
 # INSERT INTO sv_project.habilitation_role_list (habilitation_id, role_list) VALUES ('PPDL890', 'ROLE_UTILISATEUR');
 # INSERT INTO sv_project.habilitation_role_list (habilitation_id, role_list) VALUES ('PPQR933', 'ROLE_SUPERADMIN');
+# INSERT INTO sv_project.habilitation_role_list (habilitation_id, role_list) VALUES ('PBGF123', 'ROLE_ADMIN');
+#
 #
 # INSERT INTO sv_project.correspondant_application(correspondant, application) VALUES ('PBGF123', 'a1b');
 # INSERT INTO sv_project.correspondant_application(correspondant, application) VALUES ('PBGF123', 'bp_');

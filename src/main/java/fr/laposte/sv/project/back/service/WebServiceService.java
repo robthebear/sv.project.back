@@ -22,4 +22,6 @@ public interface WebServiceService {
     int findIdByWebService(String webService);
 
     Set<WebService> findWebServiceByApplication(Application codeApplication);
+
+    WebService webserviceMisAJour(WebService webService, String dateWebservice);
 }
